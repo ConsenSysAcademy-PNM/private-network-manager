@@ -23,6 +23,7 @@ class App extends Component {
       genesisData: '',
       getRequestMessage: '',
       postRequestMessage: '',
+      createNetworkMessage: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
@@ -58,6 +59,12 @@ class App extends Component {
 
   createNetwork() {
     console.log('Create network');
+    this.setState({ createNetworkMessage: '' });
+    const { name, networkId, consensus } = this.state;
+    const params = { name, networkId, consensus };
+    axios.post('/create_genesis', params)
+      .then(response => this.setState({ createNetworkMessage: response.data }))
+      .catch(err => this.setState({ createNetworkMessage: err.toString() }));
   }
 
   exampleGetRequest() {
@@ -136,6 +143,7 @@ class App extends Component {
                   onChange={this.handleChange}
                 />
                 <Button onClick={this.createNetwork}>Create new private network</Button>
+                {this.state.createNetworkMessage}
               </Form>
 
               <Segment>              
