@@ -1,6 +1,9 @@
 #!/bin/bash
 
 NETWORK_NAME=$1
+NUM_NODES=$2
+
+BASE_ADDRESS="0x690f254f3efdea0263d65b6a73561bc22a144c87"
 
 # if ! [ -x "$(command -v bootnode)" ]; then
   # echo "no bootnode"
@@ -14,30 +17,27 @@ NETWORK_NAME=$1
 
 NETWORK_ID=$(jq -r '.config | .chainId' ./server/scripts/${NETWORK_NAME}.json)
 
-mkdir -p ./server/nodes/
+mkdir -p ./server/${NETWORK_ID}/
 
-bootnode -genkey ./server/nodes/${NETWORK_NAME}.key -writeaddress
-bootnode -nodekey ./server/nodes/${NETWORK_NAME}.key -writeaddress > ./server/nodes/enode
+/Users/chrissmith/go-ethereum/build/bin/bootnode -genkey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress
+/Users/chrissmith/go-ethereum/build/bin/bootnode -nodekey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress > ./server/${NETWORK_ID}/enode
 
 echo "Starting bootnode"
-screen -dmS 'Bootnode' bootnode -nodekey ./server/nodes/${NETWORK_NAME}.key -verbosity 6
+screen -dmS 'Bootnode' /Users/chrissmith/go-ethereum/build/bin/bootnode -nodekey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -verbosity 6
 echo "Started bootnode"
 
-echo "Starting Node 1"
-rm -rf ./server/nodes/node1
-geth --datadir ./server/nodes/node1 init ./server/scripts/${NETWORK_NAME}.json
-screen -dmS 'Node1' geth --datadir ./server/nodes/node1 --networkid $NETWORK_ID --port 30303 --bootnodes enode://$(cat ./server/nodes/enode)@127.0.0.1:30301
-echo "Started Node 1"
+bash ./server/scripts/geth-start-network.sh $NETWORK_NAME $NETWORK_ID $NUM_NODES
 
-echo "Starting Node 2"
-rm -rf ./server/nodes/node2
-geth --datadir ./server/nodes/node2 init ./server/scripts/${NETWORK_NAME}.json
-screen -dmS 'Node2' geth --datadir ./server/nodes/node2 --networkid $NETWORK_ID --port 30304 --bootnodes enode://$(cat ./server/nodes/enode)@127.0.0.1:30301
-echo "Started Node 2"
-
-echo "Starting Node 3"
-rm -rf ./server/nodes/node3
-geth --datadir ./server/nodes/node3 init ./server/scripts/${NETWORK_NAME}.json
-screen -dmS 'Node3' geth --datadir ./server/nodes/node3 --networkid $NETWORK_ID --port 30305 --bootnodes enode://$(cat ./server/nodes/enode)@127.0.0.1:30301
-echo "Started Node 3"
-
+# counter=0
+# while [ $counter -lt $NUM_NODES ]
+# do
+#   echo "Starting Node $counter"
+#   port=$((30303+$counter))
+#   echo "Port: $port"
+#   rm -rf ./server/${NETWORK_ID}/node-$counter
+#   geth --datadir ./server/${NETWORK_ID}/node-$counter init ./server/scripts/${NETWORK_NAME}.json
+#   cp ./server/scripts/base-account ./server/${NETWORK_ID}/keystore/base-account
+#   screen -dmS "Node-$counter" geth --datadir ./server/${NETWORK_ID}/node-${counter} --unlock $BASE_ADDRESS --password 'testacc1' --networkid $NETWORK_ID --port $port --bootnodes enode://$(cat ./server/${NETWORK_ID}/enode)@127.0.0.1:30301 --mine --rpc --rpcapi "eth,net,web3"
+#   echo "Started Node $counter"
+#   ((counter++))
+# done
