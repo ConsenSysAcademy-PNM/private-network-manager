@@ -31,8 +31,13 @@ app.get('/script', (req, res) => {
     });
 });
 
-app.get('/test', (req, res) => {
-  res.status(200).send('/test response');
+app.get('/getExample', (req, res) => {
+  res.status(200).send('/getExample response');
+});
+
+app.post('/postExample', (req, res) => {
+  console.log(req.body);
+  res.status(200).send(`/postExample response: ${JSON.stringify(req.body)}`);
 });
 
 app.get('/:bad*', (req, res) => {
