@@ -8,4 +8,4 @@ yarn.lock
 build/
 build_webpack/
 
-server/nodes
+server/networks
