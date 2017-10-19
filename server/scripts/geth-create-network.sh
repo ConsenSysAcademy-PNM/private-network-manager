@@ -19,11 +19,11 @@ NETWORK_ID=$(jq -r '.config | .chainId' ./server/scripts/${NETWORK_NAME}.json)
 
 mkdir -p ./server/${NETWORK_ID}/
 
-/Users/chrissmith/go-ethereum/build/bin/bootnode -genkey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress
-/Users/chrissmith/go-ethereum/build/bin/bootnode -nodekey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress > ./server/${NETWORK_ID}/enode
+bootnode -genkey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress
+bootnode -nodekey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress > ./server/${NETWORK_ID}/enode
 
 echo "Starting bootnode"
-screen -dmS 'Bootnode' /Users/chrissmith/go-ethereum/build/bin/bootnode -nodekey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -verbosity 6
+screen -dmS 'Bootnode' bootnode -nodekey ./server/${NETWORK_ID}/${NETWORK_NAME}.key -verbosity 6
 echo "Started bootnode"
 
 bash ./server/scripts/geth-start-network.sh $NETWORK_NAME $NETWORK_ID $NUM_NODES
