@@ -54,6 +54,10 @@ class NetworkStatusTable extends Component {
     console.log(network);
   }
 
+  getState() {
+    
+  }
+
   render() {
     return (
       <div>
