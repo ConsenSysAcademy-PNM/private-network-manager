@@ -2,8 +2,6 @@
 
 NETWORK_NAME=$1
 
-echo $NETWORK_NAME
-
 # if ! [ -x "$(command -v bootnode)" ]; then
   # echo "no bootnode"
   # TODO: Fix for Chris because bootnode not working
