@@ -25,7 +25,11 @@ class NetworkStatusTable extends Component {
 
   componentDidMount() {
     axios.get('/get_state')
-    .then(response => this.setState({ networks: response.data }))
+    .then(response => {
+      console.log("test :" + response);
+      this.setState({ networks: response.data })
+    }
+  )
     .catch(err => console.log(err));
   }
 

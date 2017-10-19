@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 const exec = require('child_process').exec;
 
 function exec_script(){
@@ -14,31 +16,20 @@ function exec_script(){
 
 
 function get_state(){
-    var state = [
-        {
-          name: 'Network1',
-          networkId: 22,
-          nodeCount: 5,
-          consensus: 'Proof of Work',
-          ipAddress: '192.168.121.1',
-          status: 'running',
-        },
-        {
-          name: 'Network2',
-          networkId: 42,
-          nodeCount: 10,
-          consensus: 'Proof of Authority',
-          ipAddress: '192.168.121.2',
-          status: 'stopped',
-        },
-      ];
-
-    return state;
+      return fs.readFileSync("networks.txt");
 }
 
+function save_state(){
+    var stream = fs.createWriteStream("networks.txt");
+    stream.once('open', function(fd) {
+    stream.write(JSON.stringify(get_state()));
+    stream.end();
+    });
+}
 
 
 module.exports = {
     exec_script,
-    get_state
+    get_state, 
+    save_state
 }
