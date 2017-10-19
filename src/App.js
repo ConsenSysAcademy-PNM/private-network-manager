@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import getWeb3 from './utils/getWeb3'
+import axios from 'axios';
 
-import { Table, Form, Button, Radio, Dropdown } from 'semantic-ui-react';
+import { Table, Form, Button, Radio, Dropdown, Segment } from 'semantic-ui-react';
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -16,13 +17,17 @@ class App extends Component {
 
     this.state = {
       name: '',
-      networkid: '',
-      nodecount: '',
+      networkId: '',
+      nodeCount: '',
       consensus: '',
+      getRequestMessage: '',
+      postRequestMessage: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
     this.createNetwork = this.createNetwork.bind(this);
+    this.exampleGetRequest = this.exampleGetRequest.bind(this);
+    this.examplePostRequest = this.examplePostRequest.bind(this);
   }
 
   handleChange(e, data) {
@@ -51,7 +56,29 @@ class App extends Component {
   }
 
   createNetwork() {
-    console.log('Create new private network');
+    console.log('Create network');
+  }
+
+  exampleGetRequest() {
+    axios.get('/getExample')
+      .then(response => this.setState({ getRequestMessage: response.data }))
+      .catch(err => this.setState({ getRequestMessage: err.toString() }));
+  }
+
+  examplePostRequest() {
+
+    const { name, networkId, nodeCount, consensus } = this.state;
+
+    const params = {
+      name,
+      networkId,
+      nodeCount,
+      consensus,
+    }
+
+    axios.post('/postExample', params)
+      .then(response => this.setState({ postRequestMessage: response.data }))
+      .catch(err => this.setState({ postRequestMessage: err.toString() }));
   }
 
   render() {
@@ -84,15 +111,15 @@ class App extends Component {
                 <Form.Input
                   label="Network ID"
                   placeholder="Enter network id"
-                  value={this.state.networkid}
-                  name="networkid"
+                  value={this.state.networkId}
+                  name="networkId"
                   onChange={this.handleChange}
                 />
                 <Form.Input
                   label="Number of Nodes"
                   placeholder="Enter number of nodes"
-                  value={this.state.nodecount}
-                  name="nodecount"
+                  value={this.state.nodeCount}
+                  name="nodeCount"
                   onChange={this.handleChange}
                 />
                 <Form.Group inline>
@@ -102,6 +129,19 @@ class App extends Component {
                 </Form.Group>
                 <Button onClick={this.createNetwork}>Create new private network</Button>
               </Form>
+
+              <Segment>              
+                <h2>Development Area | Testing</h2>
+                
+                <Button onClick={this.exampleGetRequest}>Get request</Button>
+                {this.state.getRequestMessage}
+
+                <br />
+                <br />
+
+                <Button onClick={this.examplePostRequest}>Post request</Button>
+                {this.state.postRequestMessage}
+              </Segment>  
             </div>
           </div>
         </main>
