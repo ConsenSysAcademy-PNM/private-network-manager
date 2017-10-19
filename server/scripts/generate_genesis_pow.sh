@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Script to create a genesis file PoW
-# jq is required : npm install jq-cli-wrapper
+# jq is required : npm install jq-cli-wrapper -g
 # Example of use :
-# ./generate_genesis_pow.sh network_name 22 0x6265000000000000000000000000000000000000000000000000000000000000
+# server/scripts/generate_genesis_pow.sh test 99
 
-echo "=========Arguments supplied=============="
+echo "=========POW Arguments supplied=============="
 echo "Network name (name of file): $1"
 echo "Network Id: $2"
 echo "Data to put in genesis file as hex: $3"
