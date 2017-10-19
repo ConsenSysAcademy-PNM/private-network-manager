@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import getWeb3 from './utils/getWeb3'
+import axios from 'axios';
 
 import { Table, Form, Button, Radio, Dropdown } from 'semantic-ui-react';
 
@@ -19,6 +20,7 @@ class App extends Component {
       networkid: '',
       nodecount: '',
       consensus: '',
+      message: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
@@ -51,7 +53,9 @@ class App extends Component {
   }
 
   createNetwork() {
-    console.log('Create new private network');
+    axios.get('/test')
+      .then(response => this.setState({ message: response.data }))
+      .catch(err => this.setState({ message: err.toString() }));
   }
 
   render() {
@@ -102,6 +106,7 @@ class App extends Component {
                 </Form.Group>
                 <Button onClick={this.createNetwork}>Create new private network</Button>
               </Form>
+              {this.state.message}
             </div>
           </div>
         </main>

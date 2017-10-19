@@ -31,6 +31,10 @@ app.get('/script', (req, res) => {
     });
 });
 
+app.get('/test', (req, res) => {
+  res.status(200).send('/test response');
+});
+
 app.get('/:bad*', (req, res) => {
   res.status(404).send(`Resource not found '${req.params.bad}'`);
 });
