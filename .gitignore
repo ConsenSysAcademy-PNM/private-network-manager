@@ -3,3 +3,7 @@ yarn.lock
 node_modules
 public/dist
 package-lock.json
+archive/
+yarn.lock
+build/
+build_webpack/
