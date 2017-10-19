@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const exec = require('child_process').exec;
+const utils = require('./utils');
 
 const app = express();
 
@@ -34,6 +35,11 @@ app.get('/script', (req, res) => {
 app.get('/getExample', (req, res) => {
   res.status(200).send('/getExample response');
 });
+
+app.get('/get_state', (req, res) => {
+  res.status(200).send(utils.get_state());
+});
+
 
 app.post('/postExample', (req, res) => {
   console.log(req.body);

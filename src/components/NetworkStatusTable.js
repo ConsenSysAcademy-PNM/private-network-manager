@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios'
 import { Table, Form, Button, Dropdown } from 'semantic-ui-react';
 
 import '../css/oswald.css'
@@ -13,25 +13,9 @@ class NetworkStatusTable extends Component {
   constructor(props) {
     super(props)
 
+    
     this.state = {
-      networks: [
-        {
-          name: 'Network1',
-          networkId: 21,
-          nodeCount: 5,
-          consensus: 'Proof of Work',
-          ipAddress: '192.168.121.1',
-          status: 'running',
-        },
-        {
-          name: 'Network2',
-          networkId: 42,
-          nodeCount: 10,
-          consensus: 'Proof of Authority',
-          ipAddress: '192.168.121.2',
-          status: 'stopped',
-        },
-      ]
+      networks: []
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +24,11 @@ class NetworkStatusTable extends Component {
   }
 
   componentDidMount() {
+    axios.get('/get_state')
+    .then(response => this.setState({ networks: response.data }))
+    .catch(err => console.log(err));
   }
+
 
   handleChange(e, data) {
     this.setState({ [e.target.name]: e.target.value });
@@ -52,10 +40,6 @@ class NetworkStatusTable extends Component {
 
   handleEditNetworkDetails(network) {
     console.log(network);
-  }
-
-  getState() {
-    
   }
 
   render() {
