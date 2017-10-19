@@ -7,3 +7,5 @@ archive/
 yarn.lock
 build/
 build_webpack/
+
+server/nodes
