@@ -43,6 +43,11 @@ fi
 
 # Copy sample file to our file
 cp ./server/scripts/sample_genesis_POA.json ./server/scripts/$1_poa.json
+
+# TIMESTAMP
+HEX_TSTAMP=$(printf '0x%x' $(date +%s))
+jq --arg TIMESTAMP $HEX_TSTAMP '.timestamp = $TIMESTAMP' ./server/scripts/$1_poa.json > ./server/scripts/$1_poa.$$.json && mv ./server/scripts/$1_poa.$$.json ./server/scripts/$1_poa.json
+
 # NETWORK ID
 jq --arg NETWORKID $2 '.config.chainId = ($NETWORKID|tonumber)' ./server/scripts/$1_poa.json > ./server/scripts/$1_poa.$$.json  && mv ./server/scripts/$1_poa.$$.json ./server/scripts/$1_poa.json
 
