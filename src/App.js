@@ -8,6 +8,8 @@ import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
 
+import NetworkStatusTable from './components/NetworkStatusTable';
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -19,12 +21,16 @@ class App extends Component {
       consensus: '',
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleRadioSelection = this.handleRadioSelection.bind(this);
     this.createNetwork = this.createNetwork.bind(this);
   }
 
   handleChange(e, data) {
-    console.log(e, data);
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleRadioSelection(e, data) {
+    this.setState({ consensus: data.value });
   }
 
   componentWillMount() {
@@ -45,14 +51,7 @@ class App extends Component {
   }
 
   createNetwork() {
-  //   exec('~/Documents/12launch.sh',
-  //   function (error, stdout, stderr) {
-  //     console.log('stdout: ' + stdout);
-  //     console.log('stderr: ' + stderr);
-  //     if (error !== null) {
-  //       console.log('exec error: ' + error);
-  //     }
-  // });
+    console.log('Create new private network');
   }
 
   render() {
@@ -70,7 +69,10 @@ class App extends Component {
             <div className="pure-u-1-1">
               <h1>Private Network Manager</h1>
               <p>#CADhackDXB</p>
-              <h2>Input Network Parameters</h2>
+
+              <NetworkStatusTable />              
+
+              <h2>Create a New Network: Input Network Parameters</h2>
               <Form>
                 <Form.Input
                   label="Name"
@@ -95,8 +97,8 @@ class App extends Component {
                 />
                 <Form.Group inline>
                   <label>Consensus Methodology</label>
-                  <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleChange} />
-                  <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleChange} />
+                  <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleRadioSelection} />
+                  <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleRadioSelection} />
                 </Form.Group>
                 <Button onClick={this.createNetwork}>Create new private network</Button>
               </Form>
