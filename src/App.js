@@ -20,6 +20,7 @@ class App extends Component {
       networkId: '',
       nodeCount: '',
       consensus: '',
+      genesisData: '',
       getRequestMessage: '',
       postRequestMessage: '',
     }
@@ -127,6 +128,13 @@ class App extends Component {
                   <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleRadioSelection} />
                   <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleRadioSelection} />
                 </Form.Group>
+                <Form.Input
+                  label="Genesis data: input hex"
+                  placeholder="Enter data to be included in genesis file"
+                  value={this.state.genesisData}
+                  name="genesisData"
+                  onChange={this.handleChange}
+                />
                 <Button onClick={this.createNetwork}>Create new private network</Button>
               </Form>
 
