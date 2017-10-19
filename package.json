@@ -49,12 +49,16 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
     "dotenv": "^2.0.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-bash": "^1.5.3",
+    "react-dom": "^15.4.2",
+    "semantic-ui-react": "^0.75.1"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "node server",
+    "start-wds": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },

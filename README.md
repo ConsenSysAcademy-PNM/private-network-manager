@@ -12,27 +12,14 @@
     npm install
     ```
 
-3. Compile and migrate the contracts.
+3. Build files.
     ```javascript
-    truffle compile
-    truffle migrate
+    npm run build
     ```
 
-4. Run the webpack server for front-end hot reloading. For now, smart contract changes must be manually recompiled and migrated.
+4. Run server.
     ```javascript
     npm run start
     ```
 
-5. Jest is included for testing React components and Truffle's own suite is incldued for smart contracts. Be sure you've compile your contracts before running jest, or you'll receive some file not found errors.
-    ```javascript
-    // Runs Jest for component tests.
-    npm run test
-
-    // Runs Truffle's test suite for smart contract tests.
-    truffle test
-    ```
-
-6. To build the application for production, use the build command. A production build will be in the build_webpack folder.
-    ```javascript
-    npm run build
-    ```
+5. Open in browser @ http://localhost:5000
