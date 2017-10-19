@@ -20,7 +20,7 @@ then
 fi
 
 # Check that name doesn't exist already
-if [ -f ./$1_pow.json ]
+if [ -f ./server/scripts/$1_pow.json ]
 then
   echo "ERROR: File with this network name already exist. Exiting..."
   exit 1
