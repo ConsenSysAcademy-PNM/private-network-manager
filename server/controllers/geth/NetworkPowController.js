@@ -38,12 +38,13 @@ class GethNetworkPowController {
       console.log('stdout: ' + stdout);
       stdout.split('\n').forEach( pid => {
         try {
-          process.kill(parseInt(pid,10))
+          process.kill(parseInt(pid,10), 'SIGINT')
         }
         catch(e) {
           // console.log(e)
         }
       })
+
       if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
@@ -58,6 +59,14 @@ class GethNetworkPowController {
     const id = req.params.id
     exec(`./server/scripts/geth/pow/destroy-network.sh ${id}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
+      stdout.split('\n').forEach( pid => {
+        try {
+          process.kill(parseInt(pid,10), 'SIGINT')
+        }
+        catch(e) {
+          // console.log(e)
+        }
+      })
       if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
