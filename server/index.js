@@ -32,36 +32,14 @@ app.get('/script', (req, res) => {
     });
 });
 
-app.post('/create_genesis', (req, res) => {
-  const { name, networkId, consensus } = req.body;
-  exec(`./server/scripts/generate_genesis_${consensus}.sh ${name} ${networkId}`,
-    (error, stdout, stderr) => {
-      console.log('stdout: ' + stdout);
-      console.log('stderr: ' + stderr);
-      if (error) {
-        console.log('exec error: ' + error);
-        res.status(500).send(`Error creating genesis block: ${name} ${networkId}`);
-      } else {
-        res.status(200).send(`Successfully created genesis block: ${name} ${networkId}`);
-      }
-    });
-});
+app.post('/create_genesis', (req, res) => utils.createGenesisPromise(req.body)
+  .then(res => res.status(200).send(res))
+  .catch(err => res.status(500).send(err)));
 
-app.post('/create_geth_pow', (req, res) => {
-  const { name, networkId } = req.body;
-  const consensus = 'pow';
-  exec(`./server/scripts/geth-create-network.sh ${name} ${networkId} ${consensus}`,
-    (error, stdout, stderr) => {
-      console.log('geth-create-network.sh stdout: ' + stdout);
-      console.log('geth-create-network.sh stderr: ' + stderr);
-      if (error) {
-        console.log('exec error: ' + error);
-        res.status(500).send(`Error creating geth network: ${name} ${networkId}`);
-      } else {
-        res.status(200).send(`Successfully created geth network: ${name} ${networkId} ${consensus}`);
-      }
-    });
-});
+app.post('/create_geth_pow', (req, res) => utils.createGenesisPromise(req.body)
+  .then(() => utils.createGethNetworkPromise(req.body))
+  .then(res => res.status(200).send(res))
+  .catch(err => res.status(500).send(err)));
 
 app.post('/check_network_status', (req, res) => {
   const { networkId } = req.body;
