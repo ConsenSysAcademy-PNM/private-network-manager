@@ -17,13 +17,13 @@ BASE_ADDRESS="0x690f254f3efdea0263d65b6a73561bc22a144c87"
 
 NETWORK_ID=$(jq -r '.config | .chainId' ./server/scripts/${NETWORK_NAME}_pow.json)
 
-mkdir -p ./server/networks/${NETWORK_ID}/
+mkdir -p ../networks/${NETWORK_ID}/
 
-bootnode -genkey ./server/networks/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress
-bootnode -nodekey ./server/networks/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress > ./server/networks/${NETWORK_ID}/enode
+bootnode -genkey ../networks/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress
+bootnode -nodekey ../networks/${NETWORK_ID}/${NETWORK_NAME}.key -writeaddress > ../networks/${NETWORK_ID}/enode
 
 echo "Starting bootnode"
-screen -dmS 'Bootnode' bootnode -nodekey ./server/networks/${NETWORK_ID}/${NETWORK_NAME}.key -verbosity 6
+screen -dmS 'Bootnode' bootnode -nodekey ../networks/${NETWORK_ID}/${NETWORK_NAME}.key -verbosity 6
 echo "Started bootnode"
 
-bash ./server/scripts/geth-start-network.sh $NETWORK_NAME $NETWORK_ID $NUM_NODES
+bash ./server/scripts/geth/pow/start-network.sh $NETWORK_NAME $NETWORK_ID $NUM_NODES

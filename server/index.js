@@ -8,7 +8,6 @@ const exec = require('child_process').exec;
 const utils = require('./utils');
 
 const app = express();
-
 /*
  *  EXPRESS CONFIG
  */
@@ -23,11 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cors());
 
 // TODO: Create routes to run bash scripts
-app.post('/geth/genesis/new', GethGenesisPowController.create)
+app.post('/geth/pow/genesis/new', GethGenesisPowController.create)
 // app.post('/geth/genesis/:name/edit', GethGenesisPowController.edit)
 // app.get('/geth/genesis/:name/show', GethGenesisPowController.show)
 // app.delete('/geth/genesis/:name/destroy', GethGenesisPowController.destroy)
-app.post('/geth/network/create', GethNetworkPowController.create)
+app.post('/geth/pow/network/new', GethNetworkPowController.create)
 // app.post('/geth/network/update', GethNetworkPowController.update)
 // app.delete('/geth/network/destroy', GethNetworkPowController.destroy)
 // app.get('/geth/network/:id/status', GethNetworkPowController.show)
