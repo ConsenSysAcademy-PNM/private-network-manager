@@ -22,7 +22,7 @@ const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails }
         <Button
           positive={status !== 'running'}
           negative={status === 'running'}
-          onClick={() => handleStartStop(status === 'running' ? 'stop' : 'start')}
+          onClick={() => handleStartStop(status === 'running' ? 'stop' : network)}
         >{status === 'running' ? 'Stop' : 'Start'}</Button>
         <Button
           onClick={() => handleEditNetworkDetails(name)}
