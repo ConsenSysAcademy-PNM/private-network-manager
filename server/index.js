@@ -42,6 +42,19 @@ app.get('/script', (req, res) => {
     });
 });
 
+app.get('/test_genesis', (req, res) => {
+
+    exec('./server/scripts/generate_genesis_pow.sh name12 12',
+    function (error, stdout, stderr) {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
+      }
+    });
+});
+
+
 app.get('/getExample', (req, res) => {
   res.status(200).send('/getExample response');
 });

@@ -20,7 +20,7 @@ then
 fi
 
 # Check that name doesn't exist already
-if [ -f ./$1_pow.json ]
+if [ -f ./server/scripts/$1_pow.json ]
 then
   echo "ERROR: File with this network name already exist. Exiting..."
   exit 1
@@ -48,14 +48,14 @@ then
 fi
 
 # Copy sample file to our file
-cp sample_genesis_POW.json $1_pow.json
+cp ./server/scripts/sample_genesis_POW.json ./server/scripts/$1_pow.json
 # NETWORK ID
-jq --arg NETWORKID $2 '.config.chainId = ($NETWORKID|tonumber)' $1_pow.json > $1_pow.$$.json  && mv $1_pow.$$.json $1_pow.json
+jq --arg NETWORKID $2 '.config.chainId = ($NETWORKID|tonumber)' ./server/scripts/$1_pow.json > ./server/scripts/$1_pow.$$.json  && mv ./server/scripts/$1_pow.$$.json ./server/scripts/$1_pow.json
 
 # Data to put in genesis file
 if [ ! -z "$3" ]; 
 then
-	jq --arg EXTRADATA $3 '.extraData = $EXTRADATA' $1_pow.json > $1_pow.$$.json && mv $1_pow.$$.json $1_pow.json
+	jq --arg EXTRADATA $3 '.extraData = $EXTRADATA' ./server/scripts/$1_pow.json > ./server/scripts/$1_pow.$$.json && mv ./server/scripts/$1_pow.$$.json ./server/scripts/$1_pow.json
 fi
 
 echo "POW Genesis file $1_pow.json sucessfully created."

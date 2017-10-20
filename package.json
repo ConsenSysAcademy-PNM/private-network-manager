@@ -49,6 +49,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "jq-cli-wrapper": "^0.4",
     "axios": "^0.16.2",
     "child_process": "^1.0.2",
     "dotenv": "^2.0.0",
@@ -58,7 +59,7 @@
     "semantic-ui-react": "^0.75.1"
   },
   "scripts": {
-    "start": "node scripts/build.js && node server",
+    "start": "node scripts/build.js && node server $(jq -r .main package.json)",
     "start:wds": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
