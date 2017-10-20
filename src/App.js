@@ -24,6 +24,7 @@ class App extends Component {
       getRequestMessage: '',
       postRequestMessage: '',
       createNetworkMessage: '',
+      blockTime: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
@@ -135,6 +136,15 @@ class App extends Component {
                   <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleRadioSelection} />
                   <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleRadioSelection} />
                 </Form.Group>
+                {consensus === 'poa' && (
+                  <Form.Input
+                    label="Block time in seconds"
+                    placeholder="Default = 15"
+                    value={this.state.blockTime}
+                    name="blockTime"
+                    onChange={this.handleChange}
+                  />
+                )}
                 <Form.Input
                   label="Genesis data: input hex"
                   placeholder="Enter data to be included in genesis file"
