@@ -16,8 +16,8 @@ function exec_script() {
 }
 
 
-function get_state(){
-    exec(`pwd`,
+function get_state() {
+  exec(`pwd`,
     function (error, stdout, stderr) {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
@@ -27,51 +27,52 @@ function get_state(){
       return stdout;
     });
 
-    var network_states = {};
-    try {
-        network_states = fs.readFileSync("networks.txt").toString();
-    } catch (err) {
-        return network_states;
-    }
-
-    network_states = JSON.parse(network_states)
-    console.log(network_states)
-    
-    for (var name in network_states) {
-        let state = network_states[name]
-        console.log(state)
-        status = execSync('./server/scripts/geth/check-network.sh ' + state["networkId"]).toString()
-        state["status"] =  status
-    }
-    console.log(network_states)
-    
+  var network_states = {};
+  try {
+    network_states = fs.readFileSync("networks.txt").toString();
+  } catch (err) {
     return network_states;
+  }
+
+  network_states = JSON.parse(network_states)
+  console.log(network_states)
+
+  for (var name in network_states) {
+    let state = network_states[name]
+    console.log(state)
+    status = execSync('./server/scripts/geth/check-network.sh ' + state["networkId"]).toString()
+    state["status"] = status.replace(/\r?\n|\r/g, '');
+  }
+  console.log(network_states)
+
+  return network_states;
 }
 
-function save_state(state){
-    var stream = fs.createWriteStream("networks.txt");
-    stream.once('open', function(fd) {
+function save_state(state) {
+  var stream = fs.createWriteStream("networks.txt");
+  stream.once('open', function (fd) {
     stream.write(JSON.stringify(state));
     stream.end();
   });
 }
 
 const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) => new Promise((resolve, reject) => {
-  exec(`./server/scripts/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
-  (error, stdout, stderr) => {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error) {
-      console.log('Create genesis error: ' + error);
-      reject(`Error creating genesis block: ${name} ${networkId}`);
-    } else {
-      resolve(`Successfully created genesis block: ${name} ${networkId}`);
-    }
-  });  
+  if (consensus === 'pow') blockTime = '';
+  exec(`./server/scripts/geth/pow/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
+    (error, stdout, stderr) => {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error) {
+        console.log('Create genesis error: ' + error);
+        reject(`Error creating genesis block: ${name} ${networkId}`);
+      } else {
+        resolve(`Successfully created genesis block: ${name} ${networkId}`);
+      }
+    });
 })
 
 const createGethNetworkPromise = ({ name, networkId, consensus }) => new Promise((resolve, reject) => {
-  exec(`./server/scripts/geth-create-network.sh ${name} ${networkId} ${consensus}`,
+  exec(`./server/scripts/geth/geth-create-network.sh ${name} ${networkId} ${consensus}`,
     (error, stdout, stderr) => {
       console.log('geth-create-network.sh stdout: ' + stdout);
       console.log('geth-create-network.sh stderr: ' + stderr);
