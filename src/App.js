@@ -34,6 +34,7 @@ class App extends Component {
     this.createNetwork = this.createNetwork.bind(this);
     this.exampleGetRequest = this.exampleGetRequest.bind(this);
     this.examplePostRequest = this.examplePostRequest.bind(this);
+    this.updateNetworksStatus = this.updateNetworksStatus.bind(this);
   }
 
   handleChange(e, data) {
@@ -63,11 +64,14 @@ class App extends Component {
 
 
   componentDidMount() {
-    axios.get('/get_state')
-      .then(response => this.setState({ networks: response.data }))
-      .catch(err => console.log(err));
+    this.updateNetworksStatus();
   }
 
+  updateNetworksStatus() {
+    axios.get('/get_state')
+    .then(response => this.setState({ networks: response.data }))
+    .catch(err => console.log(err));
+  }
 
   createNetwork() {
 
@@ -128,7 +132,7 @@ class App extends Component {
               <h1>Private Network Manager</h1>
               <p>#CADhackDXB</p>
 
-              <NetworkStatusTable networks={this.state.networks} />              
+              <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} />              
 
               <h2>Create a New Network: Input Network Parameters</h2>
               <Form>

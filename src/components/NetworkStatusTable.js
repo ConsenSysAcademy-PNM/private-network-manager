@@ -15,7 +15,8 @@ class NetworkStatusTable extends Component {
 
     
     this.state = {
-      networks: {}
+      networks: {},
+      statusMessage: '',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,8 +29,30 @@ class NetworkStatusTable extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleStartStop(value) {
-    console.log(value);
+  handleStartStop(params) {
+    if (params === 'stop') {
+      axios.post('/geth/network/stop')
+        .then((statusMessage) => {
+          this.setState({ statusMessage: statusMessage.data.message });
+          this.props.updateNetworksStatus();
+        })
+        .catch(err => this.setState({ statusMessage: `Error: ${err}` }));
+    } else {
+      axios.post(`/geth/network/${params.networkId}/start`, params)
+        .then((statusMessage) => {
+          this.setState({ statusMessage: statusMessage.data.message });
+          let i = 0;
+          let interval = setInterval(() => {
+            console.log('check');
+            this.props.updateNetworksStatus();
+            if (i > 5 || this.props.networks[params.name].status === 'running') clearInterval(interval);
+            i += 1;
+          }, 1000);
+        })
+        .catch((err) => {
+          this.setState({ statusMessage: `Error: ${err}` });
+        });
+    }
   }
 
   handleEditNetworkDetails(network) {
@@ -63,6 +86,7 @@ class NetworkStatusTable extends Component {
               />)}
           </Table.Body>
         </Table>
+        {this.state.statusMessage}
 
       </div>
     );
