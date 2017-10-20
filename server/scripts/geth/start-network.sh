@@ -20,7 +20,7 @@ do
   
   if [ "$counter" -eq "0" ]; then
     MINE="--unlock $BASE_ADDRESS --password ./server/scripts/geth/password.txt --mine"
-    screen -dmS "Node-$counter" -L geth --datadir ./server/networks/$NETWORK_ID/node-$counter --networkid $NETWORK_ID --port $port --bootnodes enode://$(cat ./server/networks/$NETWORK_ID/enode)@127.0.0.1:30301 $MINE --rpc --rpcport $RPCPORT --rpcapi eth,net,web3
+    screen -dmS "Node-$counter" -L geth --datadir ./server/networks/$NETWORK_ID/node-$counter --networkid $NETWORK_ID --port $port --bootnodes enode://$(cat ./server/networks/$NETWORK_ID/enode)@127.0.0.1:30301 $MINE --rpc --rpcport $RPCPORT --rpcapi eth,net,web3,miner -rpccorsdomain "*"
   else
     echo geth --datadir ./server/networks/$NETWORK_ID/node-$counter --networkid $NETWORK_ID --port $port --bootnodes enode://$(cat ./server/networks/$NETWORK_ID/enode)@127.0.0.1:30301 --rpc --rpcapi eth,net,web3 --unlock $BASE_ADDRESS --password ./server/scripts/geth/password.txt
     screen -dmS "Node-$counter" geth --datadir ./server/networks/$NETWORK_ID/node-$counter --networkid $NETWORK_ID --port $port --bootnodes enode://$(cat ./server/networks/$NETWORK_ID/enode)@127.0.0.1:30301 --rpc --rpcport $RPCPORT --rpcapi eth,net,web3 --unlock $BASE_ADDRESS --password ./server/scripts/geth/password.txt

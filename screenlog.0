@@ -1,0 +1,397 @@
+[32mINFO [0m[10-20|07:13:52] Starting peer-to-peer node               [32minstance[0m=Geth/v1.6.7-stable-ab5646c5/linux-amd64/go1.8.1
+[32mINFO [0m[10-20|07:13:52] Allocated cache and file handles         [32mdatabase[0m=/home/louis/projects/private-network-manager/server/networks/1/node-0/geth/chaindata [32mcache[0m=128 [32mhandles[0m=1024
+[33mWARN [0m[10-20|07:13:52] Upgrading chain database to use sequential keys 
+[32mINFO [0m[10-20|07:13:52] Initialised chain configuration          [32mconfig[0m="{ChainID: 1 Homestead: 1 DAO: <nil> DAOSupport: false EIP150: 2 EIP155: 3 EIP158: 3 Metropolis: <nil> Engine: ethash}"
+[32mINFO [0m[10-20|07:13:52] Disk storage enabled for ethash caches   [32mdir[0m=/home/louis/projects/private-network-manager/server/networks/1/node-0/geth/ethash [32mcount[0m=3
+[32mINFO [0m[10-20|07:13:52] Disk storage enabled for ethash DAGs     [32mdir[0m=/home/louis/.ethash                                                               [32mcount[0m=2
+[33mWARN [0m[10-20|07:13:52] Upgrading db log bloom bins 
+[32mINFO [0m[10-20|07:13:52] Database conversion successful 
+[32mINFO [0m[10-20|07:13:52] Bloom-bin upgrade completed              [32melapsed[0m=221.039µs
+[32mINFO [0m[10-20|07:13:52] Initialising Ethereum protocol           [32mversions[0m="[63 62]" [32mnetwork[0m=1
+[32mINFO [0m[10-20|07:13:52] Loaded most recent local header          [32mnumber[0m=0 [32mhash[0m=2e85d3…5d9b59 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:13:52] Loaded most recent local full block      [32mnumber[0m=0 [32mhash[0m=2e85d3…5d9b59 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:13:52] Loaded most recent local fast block      [32mnumber[0m=0 [32mhash[0m=2e85d3…5d9b59 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:13:52] Starting P2P networking 
+[32mINFO [0m[10-20|07:13:54] UDP listener up                          [32mself[0m=enode://edf59aaf4cfbb3341af45d1605ed98a7488fa045dfddc67da441d5ead9aabb10408a7abbe18e03547b7b9a788480511c76c251e19786d071bf4029afb5412750@[::]:30303
+[32mINFO [0m[10-20|07:13:54] RLPx listener up                         [32mself[0m=enode://edf59aaf4cfbb3341af45d1605ed98a7488fa045dfddc67da441d5ead9aabb10408a7abbe18e03547b7b9a788480511c76c251e19786d071bf4029afb5412750@[::]:30303
+[32mINFO [0m[10-20|07:13:54] HTTP endpoint opened: http://127.0.0.1:8545 
+[32mINFO [0m[10-20|07:13:54] IPC endpoint opened: /home/louis/projects/private-network-manager/server/networks/1/node-0/geth.ipc 
+[32mINFO [0m[10-20|07:13:55] Unlocked account                         [32maddress[0m=0x690f254f3efdea0263d65b6a73561bc22a144c87
+[32mINFO [0m[10-20|07:13:55] Transaction pool price threshold updated [32mprice[0m=18000000000
+[32mINFO [0m[10-20|07:13:55] Starting mining operation 
+[32mINFO [0m[10-20|07:13:55] Commit new mining work                   [32mnumber[0m=1 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=200.402µs
+[32mINFO [0m[10-20|07:14:07] Successfully sealed new block            [32mnumber[0m=1 [32mhash[0m=77944f…e5ef56
+[32mINFO [0m[10-20|07:14:07] 🔨 mined potential block                  [32mnumber[0m=1 [32mhash[0m=77944f…e5ef56
+[32mINFO [0m[10-20|07:14:07] Commit new mining work                   [32mnumber[0m=2 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=324.739µs
+[32mINFO [0m[10-20|07:14:24] Successfully sealed new block            [32mnumber[0m=2 [32mhash[0m=f4c27a…10bbe5
+[32mINFO [0m[10-20|07:14:24] 🔨 mined potential block                  [32mnumber[0m=2 [32mhash[0m=f4c27a…10bbe5
+[32mINFO [0m[10-20|07:14:24] Commit new mining work                   [32mnumber[0m=3 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=146.983µs
+[32mINFO [0m[10-20|07:14:27] Successfully sealed new block            [32mnumber[0m=3 [32mhash[0m=db6d7e…4278c6
+[32mINFO [0m[10-20|07:14:27] 🔨 mined potential block                  [32mnumber[0m=3 [32mhash[0m=db6d7e…4278c6
+[32mINFO [0m[10-20|07:14:27] Commit new mining work                   [32mnumber[0m=4 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=1.914ms
+[32mINFO [0m[10-20|07:14:34] Successfully sealed new block            [32mnumber[0m=4 [32mhash[0m=d4036e…ba67bf
+[32mINFO [0m[10-20|07:14:34] 🔨 mined potential block                  [32mnumber[0m=4 [32mhash[0m=d4036e…ba67bf
+[32mINFO [0m[10-20|07:14:34] Commit new mining work                   [32mnumber[0m=5 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=155.44µs
+[32mINFO [0m[10-20|07:14:43] Successfully sealed new block            [32mnumber[0m=5 [32mhash[0m=501e6b…6da8ba
+[32mINFO [0m[10-20|07:14:43] 🔨 mined potential block                  [32mnumber[0m=5 [32mhash[0m=501e6b…6da8ba
+[32mINFO [0m[10-20|07:14:43] Commit new mining work                   [32mnumber[0m=6 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=122.911µs
+[32mINFO [0m[10-20|07:15:00] Successfully sealed new block            [32mnumber[0m=6 [32mhash[0m=054714…041139
+[32mINFO [0m[10-20|07:15:00] 🔗 block reached canonical chain          [32mnumber[0m=1 [32mhash[0m=77944f…e5ef56
+[32mINFO [0m[10-20|07:15:00] 🔨 mined potential block                  [32mnumber[0m=6 [32mhash[0m=054714…041139
+[32mINFO [0m[10-20|07:15:00] Commit new mining work                   [32mnumber[0m=7 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=116.141µs
+[32mINFO [0m[10-20|07:15:03] Successfully sealed new block            [32mnumber[0m=7 [32mhash[0m=0070b3…07caf4
+[32mINFO [0m[10-20|07:15:03] 🔗 block reached canonical chain          [32mnumber[0m=2 [32mhash[0m=f4c27a…10bbe5
+[32mINFO [0m[10-20|07:15:03] 🔨 mined potential block                  [32mnumber[0m=7 [32mhash[0m=0070b3…07caf4
+[32mINFO [0m[10-20|07:15:03] Commit new mining work                   [32mnumber[0m=8 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=131.341µs
+[32mINFO [0m[10-20|07:15:03] Successfully sealed new block            [32mnumber[0m=8 [32mhash[0m=15112b…9ae411
+[32mINFO [0m[10-20|07:15:03] 🔗 block reached canonical chain          [32mnumber[0m=3 [32mhash[0m=db6d7e…4278c6
+[32mINFO [0m[10-20|07:15:03] 🔨 mined potential block                  [32mnumber[0m=8 [32mhash[0m=15112b…9ae411
+[32mINFO [0m[10-20|07:15:03] Commit new mining work                   [32mnumber[0m=9 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=126.939µs
+[32mINFO [0m[10-20|07:15:13] Successfully sealed new block            [32mnumber[0m=9 [32mhash[0m=a2b9cf…2cf9a7
+[32mINFO [0m[10-20|07:15:13] 🔗 block reached canonical chain          [32mnumber[0m=4 [32mhash[0m=d4036e…ba67bf
+[32mINFO [0m[10-20|07:15:13] 🔨 mined potential block                  [32mnumber[0m=9 [32mhash[0m=a2b9cf…2cf9a7
+[32mINFO [0m[10-20|07:15:13] Commit new mining work                   [32mnumber[0m=10 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=127.114µs
+[32mINFO [0m[10-20|07:16:08] Successfully sealed new block            [32mnumber[0m=10 [32mhash[0m=a56bee…379efd
+[32mINFO [0m[10-20|07:16:08] 🔗 block reached canonical chain          [32mnumber[0m=5  [32mhash[0m=501e6b…6da8ba
+[32mINFO [0m[10-20|07:16:08] 🔨 mined potential block                  [32mnumber[0m=10 [32mhash[0m=a56bee…379efd
+[32mINFO [0m[10-20|07:16:08] Commit new mining work                   [32mnumber[0m=11 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=893.37µs
+[32mINFO [0m[10-20|07:16:27] Successfully sealed new block            [32mnumber[0m=11 [32mhash[0m=8714ec…224986
+[32mINFO [0m[10-20|07:16:27] 🔗 block reached canonical chain          [32mnumber[0m=6  [32mhash[0m=054714…041139
+[32mINFO [0m[10-20|07:16:27] 🔨 mined potential block                  [32mnumber[0m=11 [32mhash[0m=8714ec…224986
+[32mINFO [0m[10-20|07:16:27] Commit new mining work                   [32mnumber[0m=12 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=454.478µs
+[32mINFO [0m[10-20|07:16:40] Successfully sealed new block            [32mnumber[0m=12 [32mhash[0m=c1768c…ca27e8
+[32mINFO [0m[10-20|07:16:40] 🔗 block reached canonical chain          [32mnumber[0m=7  [32mhash[0m=0070b3…07caf4
+[32mINFO [0m[10-20|07:16:40] Commit new mining work                   [32mnumber[0m=13 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=161.227µs
+[32mINFO [0m[10-20|07:16:40] 🔨 mined potential block                  [32mnumber[0m=12 [32mhash[0m=c1768c…ca27e8
+[32mINFO [0m[10-20|07:17:04] Successfully sealed new block            [32mnumber[0m=13 [32mhash[0m=9dc651…fc6e32
+[32mINFO [0m[10-20|07:17:04] 🔗 block reached canonical chain          [32mnumber[0m=8  [32mhash[0m=15112b…9ae411
+[32mINFO [0m[10-20|07:17:04] Commit new mining work                   [32mnumber[0m=14 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=156.026µs
+[32mINFO [0m[10-20|07:17:04] 🔨 mined potential block                  [32mnumber[0m=13 [32mhash[0m=9dc651…fc6e32
+[32mINFO [0m[10-20|07:17:22] Successfully sealed new block            [32mnumber[0m=14 [32mhash[0m=21f28f…979e57
+[32mINFO [0m[10-20|07:17:22] 🔗 block reached canonical chain          [32mnumber[0m=9  [32mhash[0m=a2b9cf…2cf9a7
+[32mINFO [0m[10-20|07:17:22] 🔨 mined potential block                  [32mnumber[0m=14 [32mhash[0m=21f28f…979e57
+[32mINFO [0m[10-20|07:17:22] Commit new mining work                   [32mnumber[0m=15 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=153.571µs
+[32mINFO [0m[10-20|07:17:25] Successfully sealed new block            [32mnumber[0m=15 [32mhash[0m=529574…cafd26
+[32mINFO [0m[10-20|07:17:25] 🔗 block reached canonical chain          [32mnumber[0m=10 [32mhash[0m=a56bee…379efd
+[32mINFO [0m[10-20|07:17:25] 🔨 mined potential block                  [32mnumber[0m=15 [32mhash[0m=529574…cafd26
+[32mINFO [0m[10-20|07:17:25] Commit new mining work                   [32mnumber[0m=16 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=2.352ms
+[32mINFO [0m[10-20|07:17:35] Successfully sealed new block            [32mnumber[0m=16 [32mhash[0m=c88fec…4faa4c
+[32mINFO [0m[10-20|07:17:35] 🔗 block reached canonical chain          [32mnumber[0m=11 [32mhash[0m=8714ec…224986
+[32mINFO [0m[10-20|07:17:35] Commit new mining work                   [32mnumber[0m=17 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=133.665µs
+[32mINFO [0m[10-20|07:17:35] 🔨 mined potential block                  [32mnumber[0m=16 [32mhash[0m=c88fec…4faa4c
+[32mINFO [0m[10-20|07:17:39] Successfully sealed new block            [32mnumber[0m=17 [32mhash[0m=4c972c…08a86d
+[32mINFO [0m[10-20|07:17:39] 🔗 block reached canonical chain          [32mnumber[0m=12 [32mhash[0m=c1768c…ca27e8
+[32mINFO [0m[10-20|07:17:39] 🔨 mined potential block                  [32mnumber[0m=17 [32mhash[0m=4c972c…08a86d
+[32mINFO [0m[10-20|07:17:39] Commit new mining work                   [32mnumber[0m=18 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=125.894µs
+[32mINFO [0m[10-20|07:17:46] Successfully sealed new block            [32mnumber[0m=18 [32mhash[0m=4c7dc7…3dba27
+[32mINFO [0m[10-20|07:17:46] 🔗 block reached canonical chain          [32mnumber[0m=13 [32mhash[0m=9dc651…fc6e32
+[32mINFO [0m[10-20|07:17:46] 🔨 mined potential block                  [32mnumber[0m=18 [32mhash[0m=4c7dc7…3dba27
+[32mINFO [0m[10-20|07:17:46] Commit new mining work                   [32mnumber[0m=19 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=117.309µs
+[32mINFO [0m[10-20|07:17:51] Successfully sealed new block            [32mnumber[0m=19 [32mhash[0m=45c032…988faf
+[32mINFO [0m[10-20|07:17:51] 🔗 block reached canonical chain          [32mnumber[0m=14 [32mhash[0m=21f28f…979e57
+[32mINFO [0m[10-20|07:17:51] 🔨 mined potential block                  [32mnumber[0m=19 [32mhash[0m=45c032…988faf
+[32mINFO [0m[10-20|07:17:51] Commit new mining work                   [32mnumber[0m=20 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=150.179µs
+[32mINFO [0m[10-20|07:17:57] Successfully sealed new block            [32mnumber[0m=20 [32mhash[0m=1cc443…2a1eba
+[32mINFO [0m[10-20|07:17:57] 🔗 block reached canonical chain          [32mnumber[0m=15 [32mhash[0m=529574…cafd26
+[32mINFO [0m[10-20|07:17:57] 🔨 mined potential block                  [32mnumber[0m=20 [32mhash[0m=1cc443…2a1eba
+[32mINFO [0m[10-20|07:17:57] Commit new mining work                   [32mnumber[0m=21 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=135.448µs
+[32mINFO [0m[10-20|07:18:22] Successfully sealed new block            [32mnumber[0m=21 [32mhash[0m=f49d08…ef19a3
+[32mINFO [0m[10-20|07:18:22] 🔗 block reached canonical chain          [32mnumber[0m=16 [32mhash[0m=c88fec…4faa4c
+[32mINFO [0m[10-20|07:18:22] 🔨 mined potential block                  [32mnumber[0m=21 [32mhash[0m=f49d08…ef19a3
+[32mINFO [0m[10-20|07:18:22] Commit new mining work                   [32mnumber[0m=22 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=149.317µs
+[32mINFO [0m[10-20|07:19:02] Successfully sealed new block            [32mnumber[0m=22 [32mhash[0m=c9ad7c…faf355
+[32mINFO [0m[10-20|07:19:02] 🔗 block reached canonical chain          [32mnumber[0m=17 [32mhash[0m=4c972c…08a86d
+[32mINFO [0m[10-20|07:19:02] 🔨 mined potential block                  [32mnumber[0m=22 [32mhash[0m=c9ad7c…faf355
+[32mINFO [0m[10-20|07:19:02] Commit new mining work                   [32mnumber[0m=23 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=172.942µs
+[32mINFO [0m[10-20|07:19:05] Successfully sealed new block            [32mnumber[0m=23 [32mhash[0m=230aaf…9fb3ff
+[32mINFO [0m[10-20|07:19:05] 🔗 block reached canonical chain          [32mnumber[0m=18 [32mhash[0m=4c7dc7…3dba27
+[32mINFO [0m[10-20|07:19:05] 🔨 mined potential block                  [32mnumber[0m=23 [32mhash[0m=230aaf…9fb3ff
+[32mINFO [0m[10-20|07:19:05] Commit new mining work                   [32mnumber[0m=24 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=189.025µs
+[32mINFO [0m[10-20|07:19:14] Successfully sealed new block            [32mnumber[0m=24 [32mhash[0m=f38725…dda654
+[32mINFO [0m[10-20|07:19:14] 🔗 block reached canonical chain          [32mnumber[0m=19 [32mhash[0m=45c032…988faf
+[32mINFO [0m[10-20|07:19:14] 🔨 mined potential block                  [32mnumber[0m=24 [32mhash[0m=f38725…dda654
+[32mINFO [0m[10-20|07:19:14] Commit new mining work                   [32mnumber[0m=25 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=122.615µs
+[32mINFO [0m[10-20|07:19:26] Successfully sealed new block            [32mnumber[0m=25 [32mhash[0m=1309d2…a13752
+[32mINFO [0m[10-20|07:19:26] 🔗 block reached canonical chain          [32mnumber[0m=20 [32mhash[0m=1cc443…2a1eba
+[32mINFO [0m[10-20|07:19:26] 🔨 mined potential block                  [32mnumber[0m=25 [32mhash[0m=1309d2…a13752
+[32mINFO [0m[10-20|07:19:26] Commit new mining work                   [32mnumber[0m=26 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=139.379µs
+[32mINFO [0m[10-20|07:19:27] Successfully sealed new block            [32mnumber[0m=26 [32mhash[0m=763a35…8c5f69
+[32mINFO [0m[10-20|07:19:27] 🔗 block reached canonical chain          [32mnumber[0m=21 [32mhash[0m=f49d08…ef19a3
+[32mINFO [0m[10-20|07:19:27] 🔨 mined potential block                  [32mnumber[0m=26 [32mhash[0m=763a35…8c5f69
+[32mINFO [0m[10-20|07:19:27] Commit new mining work                   [32mnumber[0m=27 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=239.865µs
+[32mINFO [0m[10-20|07:19:56] Successfully sealed new block            [32mnumber[0m=27 [32mhash[0m=d2da8a…021a64
+[32mINFO [0m[10-20|07:19:56] 🔗 block reached canonical chain          [32mnumber[0m=22 [32mhash[0m=c9ad7c…faf355
+[32mINFO [0m[10-20|07:19:56] 🔨 mined potential block                  [32mnumber[0m=27 [32mhash[0m=d2da8a…021a64
+[32mINFO [0m[10-20|07:19:56] Commit new mining work                   [32mnumber[0m=28 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=106.388µs
+[32mINFO [0m[10-20|07:20:08] Successfully sealed new block            [32mnumber[0m=28 [32mhash[0m=c598c5…e2c30e
+[32mINFO [0m[10-20|07:20:08] 🔗 block reached canonical chain          [32mnumber[0m=23 [32mhash[0m=230aaf…9fb3ff
+[32mINFO [0m[10-20|07:20:08] 🔨 mined potential block                  [32mnumber[0m=28 [32mhash[0m=c598c5…e2c30e
+[32mINFO [0m[10-20|07:20:08] Commit new mining work                   [32mnumber[0m=29 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=137.077µs
+[32mINFO [0m[10-20|07:20:15] Successfully sealed new block            [32mnumber[0m=29 [32mhash[0m=cbae7f…bb5ed8
+[32mINFO [0m[10-20|07:20:15] Commit new mining work                   [32mnumber[0m=30 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=128.731µs
+[32mINFO [0m[10-20|07:20:15] 🔗 block reached canonical chain          [32mnumber[0m=24 [32mhash[0m=f38725…dda654
+[32mINFO [0m[10-20|07:20:15] 🔨 mined potential block                  [32mnumber[0m=29 [32mhash[0m=cbae7f…bb5ed8
+[32mINFO [0m[10-20|07:20:20] Successfully sealed new block            [32mnumber[0m=30 [32mhash[0m=0778c1…083627
+[32mINFO [0m[10-20|07:20:20] 🔗 block reached canonical chain          [32mnumber[0m=25 [32mhash[0m=1309d2…a13752
+[32mINFO [0m[10-20|07:20:20] 🔨 mined potential block                  [32mnumber[0m=30 [32mhash[0m=0778c1…083627
+[32mINFO [0m[10-20|07:20:20] Commit new mining work                   [32mnumber[0m=31 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=122.577µs
+[32mINFO [0m[10-20|07:20:36] Successfully sealed new block            [32mnumber[0m=31 [32mhash[0m=c54bd4…6ed247
+[32mINFO [0m[10-20|07:20:36] 🔗 block reached canonical chain          [32mnumber[0m=26 [32mhash[0m=763a35…8c5f69
+[32mINFO [0m[10-20|07:20:36] 🔨 mined potential block                  [32mnumber[0m=31 [32mhash[0m=c54bd4…6ed247
+[32mINFO [0m[10-20|07:20:36] Commit new mining work                   [32mnumber[0m=32 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=125.935µs
+[32mINFO [0m[10-20|07:20:42] Successfully sealed new block            [32mnumber[0m=32 [32mhash[0m=47f7ac…e8f18e
+[32mINFO [0m[10-20|07:20:42] 🔗 block reached canonical chain          [32mnumber[0m=27 [32mhash[0m=d2da8a…021a64
+[32mINFO [0m[10-20|07:20:42] 🔨 mined potential block                  [32mnumber[0m=32 [32mhash[0m=47f7ac…e8f18e
+[32mINFO [0m[10-20|07:20:42] Commit new mining work                   [32mnumber[0m=33 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=140.059µs
+[32mINFO [0m[10-20|07:20:42] Successfully sealed new block            [32mnumber[0m=33 [32mhash[0m=dbc6c1…037fae
+[32mINFO [0m[10-20|07:20:42] 🔗 block reached canonical chain          [32mnumber[0m=28 [32mhash[0m=c598c5…e2c30e
+[32mINFO [0m[10-20|07:20:42] 🔨 mined potential block                  [32mnumber[0m=33 [32mhash[0m=dbc6c1…037fae
+[32mINFO [0m[10-20|07:20:42] Commit new mining work                   [32mnumber[0m=34 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=109.18µs
+[32mINFO [0m[10-20|07:20:51] Successfully sealed new block            [32mnumber[0m=34 [32mhash[0m=867735…8f85e0
+[32mINFO [0m[10-20|07:20:51] 🔗 block reached canonical chain          [32mnumber[0m=29 [32mhash[0m=cbae7f…bb5ed8
+[32mINFO [0m[10-20|07:20:51] 🔨 mined potential block                  [32mnumber[0m=34 [32mhash[0m=867735…8f85e0
+[32mINFO [0m[10-20|07:20:51] Commit new mining work                   [32mnumber[0m=35 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=125.62µs
+[32mINFO [0m[10-20|07:20:52] Successfully sealed new block            [32mnumber[0m=35 [32mhash[0m=322d93…49f842
+[32mINFO [0m[10-20|07:20:52] 🔗 block reached canonical chain          [32mnumber[0m=30 [32mhash[0m=0778c1…083627
+[32mINFO [0m[10-20|07:20:52] 🔨 mined potential block                  [32mnumber[0m=35 [32mhash[0m=322d93…49f842
+[32mINFO [0m[10-20|07:20:52] Commit new mining work                   [32mnumber[0m=36 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=4.803ms
+[32mINFO [0m[10-20|07:21:01] Successfully sealed new block            [32mnumber[0m=36 [32mhash[0m=9ea06d…c8309c
+[32mINFO [0m[10-20|07:21:01] 🔗 block reached canonical chain          [32mnumber[0m=31 [32mhash[0m=c54bd4…6ed247
+[32mINFO [0m[10-20|07:21:01] 🔨 mined potential block                  [32mnumber[0m=36 [32mhash[0m=9ea06d…c8309c
+[32mINFO [0m[10-20|07:21:01] Commit new mining work                   [32mnumber[0m=37 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=133.738µs
+[32mINFO [0m[10-20|07:21:02] Successfully sealed new block            [32mnumber[0m=37 [32mhash[0m=1a06b9…a7966c
+[32mINFO [0m[10-20|07:21:02] 🔗 block reached canonical chain          [32mnumber[0m=32 [32mhash[0m=47f7ac…e8f18e
+[32mINFO [0m[10-20|07:21:02] 🔨 mined potential block                  [32mnumber[0m=37 [32mhash[0m=1a06b9…a7966c
+[32mINFO [0m[10-20|07:21:02] Commit new mining work                   [32mnumber[0m=38 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=191.656µs
+[32mINFO [0m[10-20|07:22:06] Successfully sealed new block            [32mnumber[0m=38 [32mhash[0m=c90eb2…e1a2da
+[32mINFO [0m[10-20|07:22:06] 🔗 block reached canonical chain          [32mnumber[0m=33 [32mhash[0m=dbc6c1…037fae
+[32mINFO [0m[10-20|07:22:06] 🔨 mined potential block                  [32mnumber[0m=38 [32mhash[0m=c90eb2…e1a2da
+[32mINFO [0m[10-20|07:22:06] Commit new mining work                   [32mnumber[0m=39 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=222.923µs
+[32mINFO [0m[10-20|07:22:07] Successfully sealed new block            [32mnumber[0m=39 [32mhash[0m=073c65…84d5e1
+[32mINFO [0m[10-20|07:22:07] 🔗 block reached canonical chain          [32mnumber[0m=34 [32mhash[0m=867735…8f85e0
+[32mINFO [0m[10-20|07:22:07] 🔨 mined potential block                  [32mnumber[0m=39 [32mhash[0m=073c65…84d5e1
+[32mINFO [0m[10-20|07:22:07] Commit new mining work                   [32mnumber[0m=40 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=140.166µs
+[32mINFO [0m[10-20|07:22:12] Successfully sealed new block            [32mnumber[0m=40 [32mhash[0m=57e1af…ba3932
+[32mINFO [0m[10-20|07:22:12] 🔗 block reached canonical chain          [32mnumber[0m=35 [32mhash[0m=322d93…49f842
+[32mINFO [0m[10-20|07:22:12] 🔨 mined potential block                  [32mnumber[0m=40 [32mhash[0m=57e1af…ba3932
+[32mINFO [0m[10-20|07:22:12] Commit new mining work                   [32mnumber[0m=41 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=153.849µs
+[32mINFO [0m[10-20|07:22:17] Successfully sealed new block            [32mnumber[0m=41 [32mhash[0m=d6b5ef…1da4de
+[32mINFO [0m[10-20|07:22:17] 🔗 block reached canonical chain          [32mnumber[0m=36 [32mhash[0m=9ea06d…c8309c
+[32mINFO [0m[10-20|07:22:17] 🔨 mined potential block                  [32mnumber[0m=41 [32mhash[0m=d6b5ef…1da4de
+[32mINFO [0m[10-20|07:22:17] Commit new mining work                   [32mnumber[0m=42 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=132.725µs
+[32mINFO [0m[10-20|07:22:28] Successfully sealed new block            [32mnumber[0m=42 [32mhash[0m=1e9d39…7bedfc
+[32mINFO [0m[10-20|07:22:28] 🔗 block reached canonical chain          [32mnumber[0m=37 [32mhash[0m=1a06b9…a7966c
+[32mINFO [0m[10-20|07:22:28] 🔨 mined potential block                  [32mnumber[0m=42 [32mhash[0m=1e9d39…7bedfc
+[32mINFO [0m[10-20|07:22:28] Commit new mining work                   [32mnumber[0m=43 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=130.774µs
+[32mINFO [0m[10-20|07:22:32] Successfully sealed new block            [32mnumber[0m=43 [32mhash[0m=ac97c8…5e5ee4
+[32mINFO [0m[10-20|07:22:32] Commit new mining work                   [32mnumber[0m=44 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=124.572µs
+[32mINFO [0m[10-20|07:22:32] 🔗 block reached canonical chain          [32mnumber[0m=38 [32mhash[0m=c90eb2…e1a2da
+[32mINFO [0m[10-20|07:22:32] 🔨 mined potential block                  [32mnumber[0m=43 [32mhash[0m=ac97c8…5e5ee4
+[32mINFO [0m[10-20|07:22:36] Successfully sealed new block            [32mnumber[0m=44 [32mhash[0m=2f298c…8ebc79
+[32mINFO [0m[10-20|07:22:36] 🔗 block reached canonical chain          [32mnumber[0m=39 [32mhash[0m=073c65…84d5e1
+[32mINFO [0m[10-20|07:22:36] 🔨 mined potential block                  [32mnumber[0m=44 [32mhash[0m=2f298c…8ebc79
+[32mINFO [0m[10-20|07:22:36] Commit new mining work                   [32mnumber[0m=45 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=125.286µs
+[32mINFO [0m[10-20|07:22:45] Successfully sealed new block            [32mnumber[0m=45 [32mhash[0m=33f136…5463d3
+[32mINFO [0m[10-20|07:22:45] 🔗 block reached canonical chain          [32mnumber[0m=40 [32mhash[0m=57e1af…ba3932
+[32mINFO [0m[10-20|07:22:45] 🔨 mined potential block                  [32mnumber[0m=45 [32mhash[0m=33f136…5463d3
+[32mINFO [0m[10-20|07:22:45] Commit new mining work                   [32mnumber[0m=46 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=834.626µs
+[32mINFO [0m[10-20|07:23:22] Successfully sealed new block            [32mnumber[0m=46 [32mhash[0m=a0de3f…6c3906
+[32mINFO [0m[10-20|07:23:22] 🔗 block reached canonical chain          [32mnumber[0m=41 [32mhash[0m=d6b5ef…1da4de
+[32mINFO [0m[10-20|07:23:22] 🔨 mined potential block                  [32mnumber[0m=46 [32mhash[0m=a0de3f…6c3906
+[32mINFO [0m[10-20|07:23:22] Commit new mining work                   [32mnumber[0m=47 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=134.01µs
+[32mINFO [0m[10-20|07:23:31] Successfully sealed new block            [32mnumber[0m=47 [32mhash[0m=6c4b65…513800
+[32mINFO [0m[10-20|07:23:31] 🔗 block reached canonical chain          [32mnumber[0m=42 [32mhash[0m=1e9d39…7bedfc
+[32mINFO [0m[10-20|07:23:31] 🔨 mined potential block                  [32mnumber[0m=47 [32mhash[0m=6c4b65…513800
+[32mINFO [0m[10-20|07:23:31] Commit new mining work                   [32mnumber[0m=48 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=148.703µs
+[32mINFO [0m[10-20|07:23:43] Successfully sealed new block            [32mnumber[0m=48 [32mhash[0m=fa7528…8f1bc4
+[32mINFO [0m[10-20|07:23:43] 🔗 block reached canonical chain          [32mnumber[0m=43 [32mhash[0m=ac97c8…5e5ee4
+[32mINFO [0m[10-20|07:23:43] 🔨 mined potential block                  [32mnumber[0m=48 [32mhash[0m=fa7528…8f1bc4
+[32mINFO [0m[10-20|07:23:43] Commit new mining work                   [32mnumber[0m=49 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=139.162µs
+[32mINFO [0m[10-20|07:24:13] Successfully sealed new block            [32mnumber[0m=49 [32mhash[0m=4b7936…5c0dc1
+[32mINFO [0m[10-20|07:24:13] 🔗 block reached canonical chain          [32mnumber[0m=44 [32mhash[0m=2f298c…8ebc79
+[32mINFO [0m[10-20|07:24:13] 🔨 mined potential block                  [32mnumber[0m=49 [32mhash[0m=4b7936…5c0dc1
+[32mINFO [0m[10-20|07:24:13] Commit new mining work                   [32mnumber[0m=50 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=120.324µs
+[32mINFO [0m[10-20|07:24:17] Successfully sealed new block            [32mnumber[0m=50 [32mhash[0m=65464b…23655f
+[32mINFO [0m[10-20|07:24:17] 🔗 block reached canonical chain          [32mnumber[0m=45 [32mhash[0m=33f136…5463d3
+[32mINFO [0m[10-20|07:24:17] 🔨 mined potential block                  [32mnumber[0m=50 [32mhash[0m=65464b…23655f
+[32mINFO [0m[10-20|07:24:17] Commit new mining work                   [32mnumber[0m=51 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=126.816µs
+[32mINFO [0m[10-20|07:24:19] Successfully sealed new block            [32mnumber[0m=51 [32mhash[0m=8e5e06…9316c1
+[32mINFO [0m[10-20|07:24:19] 🔗 block reached canonical chain          [32mnumber[0m=46 [32mhash[0m=a0de3f…6c3906
+[32mINFO [0m[10-20|07:24:19] 🔨 mined potential block                  [32mnumber[0m=51 [32mhash[0m=8e5e06…9316c1
+[32mINFO [0m[10-20|07:24:19] Commit new mining work                   [32mnumber[0m=52 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=154.543µs
+[32mINFO [0m[10-20|07:24:33] Successfully sealed new block            [32mnumber[0m=52 [32mhash[0m=401d20…404784
+[32mINFO [0m[10-20|07:24:33] 🔗 block reached canonical chain          [32mnumber[0m=47 [32mhash[0m=6c4b65…513800
+[32mINFO [0m[10-20|07:24:33] 🔨 mined potential block                  [32mnumber[0m=52 [32mhash[0m=401d20…404784
+[32mINFO [0m[10-20|07:24:33] Commit new mining work                   [32mnumber[0m=53 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=182.479µs
+[32mINFO [0m[10-20|07:24:42] Successfully sealed new block            [32mnumber[0m=53 [32mhash[0m=911469…245a30
+[32mINFO [0m[10-20|07:24:42] 🔗 block reached canonical chain          [32mnumber[0m=48 [32mhash[0m=fa7528…8f1bc4
+[32mINFO [0m[10-20|07:24:42] 🔨 mined potential block                  [32mnumber[0m=53 [32mhash[0m=911469…245a30
+[32mINFO [0m[10-20|07:24:42] Commit new mining work                   [32mnumber[0m=54 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=204.311µs
+[32mINFO [0m[10-20|07:24:44] Successfully sealed new block            [32mnumber[0m=54 [32mhash[0m=657a4f…eed78a
+[32mINFO [0m[10-20|07:24:44] 🔗 block reached canonical chain          [32mnumber[0m=49 [32mhash[0m=4b7936…5c0dc1
+[32mINFO [0m[10-20|07:24:44] 🔨 mined potential block                  [32mnumber[0m=54 [32mhash[0m=657a4f…eed78a
+[32mINFO [0m[10-20|07:24:44] Commit new mining work                   [32mnumber[0m=55 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=139.568µs
+[32mINFO [0m[10-20|07:24:52] Successfully sealed new block            [32mnumber[0m=55 [32mhash[0m=f158a1…e007e8
+[32mINFO [0m[10-20|07:24:52] 🔗 block reached canonical chain          [32mnumber[0m=50 [32mhash[0m=65464b…23655f
+[32mINFO [0m[10-20|07:24:52] 🔨 mined potential block                  [32mnumber[0m=55 [32mhash[0m=f158a1…e007e8
+[32mINFO [0m[10-20|07:24:52] Commit new mining work                   [32mnumber[0m=56 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=118.29µs
+[32mINFO [0m[10-20|07:25:03] Successfully sealed new block            [32mnumber[0m=56 [32mhash[0m=975e4a…21312f
+[32mINFO [0m[10-20|07:25:03] 🔗 block reached canonical chain          [32mnumber[0m=51 [32mhash[0m=8e5e06…9316c1
+[32mINFO [0m[10-20|07:25:03] 🔨 mined potential block                  [32mnumber[0m=56 [32mhash[0m=975e4a…21312f
+[32mINFO [0m[10-20|07:25:03] Commit new mining work                   [32mnumber[0m=57 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=310.479µs
+[32mINFO [0m[10-20|07:25:15] Successfully sealed new block            [32mnumber[0m=57 [32mhash[0m=98d785…ffd9b4
+[32mINFO [0m[10-20|07:25:15] 🔗 block reached canonical chain          [32mnumber[0m=52 [32mhash[0m=401d20…404784
+[32mINFO [0m[10-20|07:25:15] 🔨 mined potential block                  [32mnumber[0m=57 [32mhash[0m=98d785…ffd9b4
+[32mINFO [0m[10-20|07:25:15] Commit new mining work                   [32mnumber[0m=58 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=151.335µs
+[32mINFO [0m[10-20|07:25:19] Successfully sealed new block            [32mnumber[0m=58 [32mhash[0m=1884aa…1a6ec2
+[32mINFO [0m[10-20|07:25:19] 🔗 block reached canonical chain          [32mnumber[0m=53 [32mhash[0m=911469…245a30
+[32mINFO [0m[10-20|07:25:19] 🔨 mined potential block                  [32mnumber[0m=58 [32mhash[0m=1884aa…1a6ec2
+[32mINFO [0m[10-20|07:25:19] Commit new mining work                   [32mnumber[0m=59 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=153.241µs
+[32mINFO [0m[10-20|07:25:31] Successfully sealed new block            [32mnumber[0m=59 [32mhash[0m=e59fcb…2b1496
+[32mINFO [0m[10-20|07:25:31] 🔗 block reached canonical chain          [32mnumber[0m=54 [32mhash[0m=657a4f…eed78a
+[32mINFO [0m[10-20|07:25:31] 🔨 mined potential block                  [32mnumber[0m=59 [32mhash[0m=e59fcb…2b1496
+[32mINFO [0m[10-20|07:25:31] Commit new mining work                   [32mnumber[0m=60 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=123.198µs
+[32mINFO [0m[10-20|07:25:31] Successfully sealed new block            [32mnumber[0m=60 [32mhash[0m=5f9ca5…3b1145
+[32mINFO [0m[10-20|07:25:31] 🔗 block reached canonical chain          [32mnumber[0m=55 [32mhash[0m=f158a1…e007e8
+[32mINFO [0m[10-20|07:25:31] Commit new mining work                   [32mnumber[0m=61 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=153.205µs
+[32mINFO [0m[10-20|07:25:31] 🔨 mined potential block                  [32mnumber[0m=60 [32mhash[0m=5f9ca5…3b1145
+[32mINFO [0m[10-20|07:26:11] Successfully sealed new block            [32mnumber[0m=61 [32mhash[0m=dbe799…6154ab
+[32mINFO [0m[10-20|07:26:11] 🔗 block reached canonical chain          [32mnumber[0m=56 [32mhash[0m=975e4a…21312f
+[32mINFO [0m[10-20|07:26:11] 🔨 mined potential block                  [32mnumber[0m=61 [32mhash[0m=dbe799…6154ab
+[32mINFO [0m[10-20|07:26:11] Commit new mining work                   [32mnumber[0m=62 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=130.101µs
+[32mINFO [0m[10-20|07:26:18] Successfully sealed new block            [32mnumber[0m=62 [32mhash[0m=344610…27bb47
+[32mINFO [0m[10-20|07:26:18] 🔗 block reached canonical chain          [32mnumber[0m=57 [32mhash[0m=98d785…ffd9b4
+[32mINFO [0m[10-20|07:26:18] 🔨 mined potential block                  [32mnumber[0m=62 [32mhash[0m=344610…27bb47
+[32mINFO [0m[10-20|07:26:18] Commit new mining work                   [32mnumber[0m=63 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=271.526µs
+[32mINFO [0m[10-20|07:26:36] Successfully sealed new block            [32mnumber[0m=63 [32mhash[0m=84c61d…8fb225
+[32mINFO [0m[10-20|07:26:36] 🔗 block reached canonical chain          [32mnumber[0m=58 [32mhash[0m=1884aa…1a6ec2
+[32mINFO [0m[10-20|07:26:36] 🔨 mined potential block                  [32mnumber[0m=63 [32mhash[0m=84c61d…8fb225
+[32mINFO [0m[10-20|07:26:36] Commit new mining work                   [32mnumber[0m=64 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=122.102µs
+[32mINFO [0m[10-20|07:26:42] Successfully sealed new block            [32mnumber[0m=64 [32mhash[0m=fc8d3e…3218ce
+[32mINFO [0m[10-20|07:26:42] 🔗 block reached canonical chain          [32mnumber[0m=59 [32mhash[0m=e59fcb…2b1496
+[32mINFO [0m[10-20|07:26:42] 🔨 mined potential block                  [32mnumber[0m=64 [32mhash[0m=fc8d3e…3218ce
+[32mINFO [0m[10-20|07:26:42] Commit new mining work                   [32mnumber[0m=65 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=126.412µs
+[32mINFO [0m[10-20|07:26:46] Successfully sealed new block            [32mnumber[0m=65 [32mhash[0m=4f6715…4270b5
+[32mINFO [0m[10-20|07:26:46] 🔗 block reached canonical chain          [32mnumber[0m=60 [32mhash[0m=5f9ca5…3b1145
+[32mINFO [0m[10-20|07:26:46] 🔨 mined potential block                  [32mnumber[0m=65 [32mhash[0m=4f6715…4270b5
+[32mINFO [0m[10-20|07:26:46] Commit new mining work                   [32mnumber[0m=66 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=121.918µs
+[32mINFO [0m[10-20|07:26:53] Successfully sealed new block            [32mnumber[0m=66 [32mhash[0m=b9b88f…b9a0ae
+[32mINFO [0m[10-20|07:26:53] 🔗 block reached canonical chain          [32mnumber[0m=61 [32mhash[0m=dbe799…6154ab
+[32mINFO [0m[10-20|07:26:53] 🔨 mined potential block                  [32mnumber[0m=66 [32mhash[0m=b9b88f…b9a0ae
+[32mINFO [0m[10-20|07:26:53] Commit new mining work                   [32mnumber[0m=67 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=298.834µs
+[32mINFO [0m[10-20|07:26:53] Successfully sealed new block            [32mnumber[0m=67 [32mhash[0m=1e565d…1e9474
+[32mINFO [0m[10-20|07:26:53] 🔗 block reached canonical chain          [32mnumber[0m=62 [32mhash[0m=344610…27bb47
+[32mINFO [0m[10-20|07:26:53] 🔨 mined potential block                  [32mnumber[0m=67 [32mhash[0m=1e565d…1e9474
+[32mINFO [0m[10-20|07:26:53] Commit new mining work                   [32mnumber[0m=68 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=118.207µs
+[32mINFO [0m[10-20|07:26:54] Successfully sealed new block            [32mnumber[0m=68 [32mhash[0m=3bf36d…942718
+[32mINFO [0m[10-20|07:26:54] Commit new mining work                   [32mnumber[0m=69 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=116.861µs
+[32mINFO [0m[10-20|07:26:54] 🔗 block reached canonical chain          [32mnumber[0m=63 [32mhash[0m=84c61d…8fb225
+[32mINFO [0m[10-20|07:26:54] 🔨 mined potential block                  [32mnumber[0m=68 [32mhash[0m=3bf36d…942718
+[32mINFO [0m[10-20|07:27:04] Successfully sealed new block            [32mnumber[0m=69 [32mhash[0m=8285fd…8cb2e8
+[32mINFO [0m[10-20|07:27:04] 🔗 block reached canonical chain          [32mnumber[0m=64 [32mhash[0m=fc8d3e…3218ce
+[32mINFO [0m[10-20|07:27:04] 🔨 mined potential block                  [32mnumber[0m=69 [32mhash[0m=8285fd…8cb2e8
+[32mINFO [0m[10-20|07:27:04] Commit new mining work                   [32mnumber[0m=70 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=171.389µs
+[32mINFO [0m[10-20|07:27:32] Successfully sealed new block            [32mnumber[0m=70 [32mhash[0m=eb6132…e40da8
+[32mINFO [0m[10-20|07:27:32] 🔗 block reached canonical chain          [32mnumber[0m=65 [32mhash[0m=4f6715…4270b5
+[32mINFO [0m[10-20|07:27:32] 🔨 mined potential block                  [32mnumber[0m=70 [32mhash[0m=eb6132…e40da8
+[32mINFO [0m[10-20|07:27:32] Commit new mining work                   [32mnumber[0m=71 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=120.864µs
+[32mINFO [0m[10-20|07:27:55] Successfully sealed new block            [32mnumber[0m=71 [32mhash[0m=d932f6…917833
+[32mINFO [0m[10-20|07:27:55] Commit new mining work                   [32mnumber[0m=72 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=150.005µs
+[32mINFO [0m[10-20|07:27:55] 🔗 block reached canonical chain          [32mnumber[0m=66 [32mhash[0m=b9b88f…b9a0ae
+[32mINFO [0m[10-20|07:27:55] 🔨 mined potential block                  [32mnumber[0m=71 [32mhash[0m=d932f6…917833
+[32mINFO [0m[10-20|07:27:57] Successfully sealed new block            [32mnumber[0m=72 [32mhash[0m=265e3c…6d5a2c
+[32mINFO [0m[10-20|07:27:57] 🔗 block reached canonical chain          [32mnumber[0m=67 [32mhash[0m=1e565d…1e9474
+[32mINFO [0m[10-20|07:27:57] 🔨 mined potential block                  [32mnumber[0m=72 [32mhash[0m=265e3c…6d5a2c
+[32mINFO [0m[10-20|07:27:57] Commit new mining work                   [32mnumber[0m=73 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=167.337µs
+[32mINFO [0m[10-20|07:28:04] Successfully sealed new block            [32mnumber[0m=73 [32mhash[0m=c0d7a5…67b7a6
+[32mINFO [0m[10-20|07:28:04] 🔗 block reached canonical chain          [32mnumber[0m=68 [32mhash[0m=3bf36d…942718
+[32mINFO [0m[10-20|07:28:04] 🔨 mined potential block                  [32mnumber[0m=73 [32mhash[0m=c0d7a5…67b7a6
+[32mINFO [0m[10-20|07:28:04] Commit new mining work                   [32mnumber[0m=74 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=1.752ms
+[32mINFO [0m[10-20|07:28:24] Successfully sealed new block            [32mnumber[0m=74 [32mhash[0m=958310…c1ebb4
+[32mINFO [0m[10-20|07:28:24] 🔗 block reached canonical chain          [32mnumber[0m=69 [32mhash[0m=8285fd…8cb2e8
+[32mINFO [0m[10-20|07:28:24] 🔨 mined potential block                  [32mnumber[0m=74 [32mhash[0m=958310…c1ebb4
+[32mINFO [0m[10-20|07:28:24] Commit new mining work                   [32mnumber[0m=75 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=119.684µs
+[32mINFO [0m[10-20|07:28:25] Successfully sealed new block            [32mnumber[0m=75 [32mhash[0m=7dc3bc…c6b29c
+[32mINFO [0m[10-20|07:28:25] 🔗 block reached canonical chain          [32mnumber[0m=70 [32mhash[0m=eb6132…e40da8
+[32mINFO [0m[10-20|07:28:25] 🔨 mined potential block                  [32mnumber[0m=75 [32mhash[0m=7dc3bc…c6b29c
+[32mINFO [0m[10-20|07:28:25] Commit new mining work                   [32mnumber[0m=76 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=118.873µs
+[32mINFO [0m[10-20|07:28:35] Starting peer-to-peer node               [32minstance[0m=Geth/v1.6.7-stable-ab5646c5/linux-amd64/go1.8.1
+[32mINFO [0m[10-20|07:28:35] Allocated cache and file handles         [32mdatabase[0m=/home/louis/projects/private-network-manager/server/networks/23/node-0/geth/chaindata [32mcache[0m=128 [32mhandles[0m=1024
+[33mWARN [0m[10-20|07:28:35] Upgrading chain database to use sequential keys 
+[32mINFO [0m[10-20|07:28:35] Initialised chain configuration          [32mconfig[0m="{ChainID: 23 Homestead: 1 DAO: <nil> DAOSupport: false EIP150: 2 EIP155: 3 EIP158: 3 Metropolis: <nil> Engine: ethash}"
+[32mINFO [0m[10-20|07:28:35] Disk storage enabled for ethash caches   [32mdir[0m=/home/louis/projects/private-network-manager/server/networks/23/node-0/geth/ethash [32mcount[0m=3
+[32mINFO [0m[10-20|07:28:35] Disk storage enabled for ethash DAGs     [32mdir[0m=/home/louis/.ethash                                                                [32mcount[0m=2
+[33mWARN [0m[10-20|07:28:35] Upgrading db log bloom bins 
+[32mINFO [0m[10-20|07:28:35] Bloom-bin upgrade completed              [32melapsed[0m=81.225µs
+[32mINFO [0m[10-20|07:28:35] Initialising Ethereum protocol           [32mversions[0m="[63 62]" [32mnetwork[0m=23
+[32mINFO [0m[10-20|07:28:35] Loaded most recent local header          [32mnumber[0m=0 [32mhash[0m=c8a873…e9b658 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:28:35] Loaded most recent local full block      [32mnumber[0m=0 [32mhash[0m=c8a873…e9b658 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:28:35] Loaded most recent local fast block      [32mnumber[0m=0 [32mhash[0m=c8a873…e9b658 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:28:35] Starting P2P networking 
+Fatal: Error starting protocol stack: listen udp :30303: bind: address already in use
+[32mINFO [0m[10-20|07:28:53] Successfully sealed new block            [32mnumber[0m=76 [32mhash[0m=fd7ae6…f81fa2
+[32mINFO [0m[10-20|07:28:53] 🔗 block reached canonical chain          [32mnumber[0m=71 [32mhash[0m=d932f6…917833
+[32mINFO [0m[10-20|07:28:53] 🔨 mined potential block                  [32mnumber[0m=76 [32mhash[0m=fd7ae6…f81fa2
+[32mINFO [0m[10-20|07:28:53] Commit new mining work                   [32mnumber[0m=77 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=2.778ms
+[32mINFO [0m[10-20|07:28:55] Successfully sealed new block            [32mnumber[0m=77 [32mhash[0m=09fa09…801380
+[32mINFO [0m[10-20|07:28:55] 🔗 block reached canonical chain          [32mnumber[0m=72 [32mhash[0m=265e3c…6d5a2c
+[32mINFO [0m[10-20|07:28:55] Commit new mining work                   [32mnumber[0m=78 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=135.231µs
+[32mINFO [0m[10-20|07:28:55] 🔨 mined potential block                  [32mnumber[0m=77 [32mhash[0m=09fa09…801380
+[32mINFO [0m[10-20|07:29:00] Successfully sealed new block            [32mnumber[0m=78 [32mhash[0m=e4c344…7e58cb
+[32mINFO [0m[10-20|07:29:00] 🔗 block reached canonical chain          [32mnumber[0m=73 [32mhash[0m=c0d7a5…67b7a6
+[32mINFO [0m[10-20|07:29:00] 🔨 mined potential block                  [32mnumber[0m=78 [32mhash[0m=e4c344…7e58cb
+[32mINFO [0m[10-20|07:29:00] Commit new mining work                   [32mnumber[0m=79 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=4.672ms
+[32mINFO [0m[10-20|07:29:22] Successfully sealed new block            [32mnumber[0m=79 [32mhash[0m=fdc22b…de3aff
+[32mINFO [0m[10-20|07:29:22] 🔗 block reached canonical chain          [32mnumber[0m=74 [32mhash[0m=958310…c1ebb4
+[32mINFO [0m[10-20|07:29:22] 🔨 mined potential block                  [32mnumber[0m=79 [32mhash[0m=fdc22b…de3aff
+[32mINFO [0m[10-20|07:29:22] Commit new mining work                   [32mnumber[0m=80 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=128.837µs
+[32mINFO [0m[10-20|07:29:24] Successfully sealed new block            [32mnumber[0m=80 [32mhash[0m=3f4531…e5f08e
+[32mINFO [0m[10-20|07:29:24] 🔗 block reached canonical chain          [32mnumber[0m=75 [32mhash[0m=7dc3bc…c6b29c
+[32mINFO [0m[10-20|07:29:24] 🔨 mined potential block                  [32mnumber[0m=80 [32mhash[0m=3f4531…e5f08e
+[32mINFO [0m[10-20|07:29:24] Commit new mining work                   [32mnumber[0m=81 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=158.28µs
+[32mINFO [0m[10-20|07:29:42] Successfully sealed new block            [32mnumber[0m=81 [32mhash[0m=20913a…182e85
+[32mINFO [0m[10-20|07:29:42] 🔗 block reached canonical chain          [32mnumber[0m=76 [32mhash[0m=fd7ae6…f81fa2
+[32mINFO [0m[10-20|07:29:42] 🔨 mined potential block                  [32mnumber[0m=81 [32mhash[0m=20913a…182e85
+[32mINFO [0m[10-20|07:29:42] Commit new mining work                   [32mnumber[0m=82 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=146.219µs
+[32mINFO [0m[10-20|07:30:47] Starting peer-to-peer node               [32minstance[0m=Geth/v1.6.7-stable-ab5646c5/linux-amd64/go1.8.1
+[32mINFO [0m[10-20|07:30:47] Allocated cache and file handles         [32mdatabase[0m=/home/louis/projects/private-network-manager/server/networks/3/node-0/geth/chaindata [32mcache[0m=128 [32mhandles[0m=1024
+[33mWARN [0m[10-20|07:30:47] Upgrading chain database to use sequential keys 
+[32mINFO [0m[10-20|07:30:47] Initialised chain configuration          [32mconfig[0m="{ChainID: 3 Homestead: 1 DAO: <nil> DAOSupport: false EIP150: 2 EIP155: 3 EIP158: 3 Metropolis: <nil> Engine: ethash}"
+[32mINFO [0m[10-20|07:30:47] Disk storage enabled for ethash caches   [32mdir[0m=/home/louis/projects/private-network-manager/server/networks/3/node-0/geth/ethash [32mcount[0m=3
+[32mINFO [0m[10-20|07:30:47] Disk storage enabled for ethash DAGs     [32mdir[0m=/home/louis/.ethash                                                               [32mcount[0m=2
+[33mWARN [0m[10-20|07:30:47] Upgrading db log bloom bins 
+[32mINFO [0m[10-20|07:30:47] Database conversion successful 
+[32mINFO [0m[10-20|07:30:47] Bloom-bin upgrade completed              [32melapsed[0m=1.088ms
+[32mINFO [0m[10-20|07:30:47] Initialising Ethereum protocol           [32mversions[0m="[63 62]" [32mnetwork[0m=3
+[32mINFO [0m[10-20|07:30:47] Loaded most recent local header          [32mnumber[0m=0 [32mhash[0m=f465b7…dba4a7 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:30:47] Loaded most recent local full block      [32mnumber[0m=0 [32mhash[0m=f465b7…dba4a7 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:30:47] Loaded most recent local fast block      [32mnumber[0m=0 [32mhash[0m=f465b7…dba4a7 [32mtd[0m=1048576
+[32mINFO [0m[10-20|07:30:47] Starting P2P networking 
+[32mINFO [0m[10-20|07:30:49] UDP listener up                          [32mself[0m=enode://1b545079d71ad521e4e60ad415bf4363354698c35e3fd1e6ff09b755149e13c1ef1f3678368ac76a99d9143ed4f651febe5b30af6cd8edf2e44964bab948c4b0@[::]:30303
+[32mINFO [0m[10-20|07:30:49] HTTP endpoint opened: http://127.0.0.1:8545 
+[32mINFO [0m[10-20|07:30:49] RLPx listener up                         [32mself[0m=enode://1b545079d71ad521e4e60ad415bf4363354698c35e3fd1e6ff09b755149e13c1ef1f3678368ac76a99d9143ed4f651febe5b30af6cd8edf2e44964bab948c4b0@[::]:30303
+[32mINFO [0m[10-20|07:30:49] IPC endpoint opened: /home/louis/projects/private-network-manager/server/networks/3/node-0/geth.ipc 
+[32mINFO [0m[10-20|07:30:50] Unlocked account                         [32maddress[0m=0x690f254f3efdea0263d65b6a73561bc22a144c87
+[32mINFO [0m[10-20|07:30:50] Transaction pool price threshold updated [32mprice[0m=18000000000
+[32mINFO [0m[10-20|07:30:50] Starting mining operation 
+[32mINFO [0m[10-20|07:30:50] Commit new mining work                   [32mnumber[0m=1 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=134.403µs
+[32mINFO [0m[10-20|07:30:59] Updated mining threads                   [32mthreads[0m=1
+[32mINFO [0m[10-20|07:31:07] Successfully sealed new block            [32mnumber[0m=1 [32mhash[0m=f9a7b0…666387
+[32mINFO [0m[10-20|07:31:07] 🔨 mined potential block                  [32mnumber[0m=1 [32mhash[0m=f9a7b0…666387
+[32mINFO [0m[10-20|07:31:07] Commit new mining work                   [32mnumber[0m=2 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=4.053ms
+[32mINFO [0m[10-20|07:32:25] Successfully sealed new block            [32mnumber[0m=2 [32mhash[0m=893dcf…81fa04
+[32mINFO [0m[10-20|07:32:25] 🔨 mined potential block                  [32mnumber[0m=2 [32mhash[0m=893dcf…81fa04
+[32mINFO [0m[10-20|07:32:25] Commit new mining work                   [32mnumber[0m=3 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=458.61µs
+[32mINFO [0m[10-20|07:32:31] Successfully sealed new block            [32mnumber[0m=3 [32mhash[0m=300f73…6eb520
+[32mINFO [0m[10-20|07:32:31] 🔨 mined potential block                  [32mnumber[0m=3 [32mhash[0m=300f73…6eb520
+[32mINFO [0m[10-20|07:32:31] Commit new mining work                   [32mnumber[0m=4 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=127.447µs
+[32mINFO [0m[10-20|07:33:15] Successfully sealed new block            [32mnumber[0m=4 [32mhash[0m=fbffee…e95201
+[32mINFO [0m[10-20|07:33:15] 🔨 mined potential block                  [32mnumber[0m=4 [32mhash[0m=fbffee…e95201
+[32mINFO [0m[10-20|07:33:15] Commit new mining work                   [32mnumber[0m=5 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=224.239µs
+[32mINFO [0m[10-20|07:33:18] Successfully sealed new block            [32mnumber[0m=5 [32mhash[0m=b54a82…c88c20
+[32mINFO [0m[10-20|07:33:18] 🔨 mined potential block                  [32mnumber[0m=5 [32mhash[0m=b54a82…c88c20
+[32mINFO [0m[10-20|07:33:18] Commit new mining work                   [32mnumber[0m=6 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=2.956ms
+[32mINFO [0m[10-20|07:33:24] Successfully sealed new block            [32mnumber[0m=6 [32mhash[0m=c00d09…6b2c56
+[32mINFO [0m[10-20|07:33:24] 🔗 block reached canonical chain          [32mnumber[0m=1 [32mhash[0m=f9a7b0…666387
+[32mINFO [0m[10-20|07:33:24] 🔨 mined potential block                  [32mnumber[0m=6 [32mhash[0m=c00d09…6b2c56
+[32mINFO [0m[10-20|07:33:24] Commit new mining work                   [32mnumber[0m=7 [32mtxs[0m=0 [32muncles[0m=0 [32melapsed[0m=113.752µs

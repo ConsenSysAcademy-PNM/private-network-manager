@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const GethGenesisPowController = new (require('./controllers/geth/GenesisPowController'));
 const GethNetworkController = new (require('./controllers/geth/NetworkController'));
+const GethMiningController = new (require('./controllers/geth/MiningController'));
 const exec = require('child_process').exec;
 const utils = require('./utils');
 const http = require('http')
@@ -36,6 +37,8 @@ app.post('/geth/network/:id/start', GethNetworkController.start)
 app.post('/geth/network/stop', GethNetworkController.stop)
 app.delete('/geth/network/:id', GethNetworkController.destroy)
 // app.get('/geth/network/:id/status', GethNetworkController.show)
+app.post('/geth/mining/start', GethMiningController.start)
+app.post('/geth/mining/stop', GethMiningController.stop)
 
 app.get('/script', (req, res) => {
   exec('~/Documents/12launch.sh',
