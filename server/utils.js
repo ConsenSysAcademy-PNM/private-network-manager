@@ -40,8 +40,8 @@ function save_state() {
   });
 }
 
-const createGenesisPromise = ({ name, networkId, consensus }) => new Promise((resolve, reject) => {
-  exec(`./server/scripts/generate_genesis_${consensus}.sh ${name} ${networkId}`,
+const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) => new Promise((resolve, reject) => {
+  exec(`./server/scripts/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
   (error, stdout, stderr) => {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
