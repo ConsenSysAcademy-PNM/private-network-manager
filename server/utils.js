@@ -48,7 +48,7 @@ function save_state(state) {
 
 const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) => new Promise((resolve, reject) => {
   if (consensus === 'pow') blockTime = '';
-  exec(`./server/scripts/geth/pow/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
+  exec(`./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
     (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
@@ -62,7 +62,7 @@ const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) =>
 })
 
 const createGethNetworkPromise = ({ name, nodeCount, consensus }) => new Promise((resolve, reject) => {
-  exec(`./server/scripts/geth/pow/create-network.sh ${name} ${nodeCount} ${consensus}`,
+  exec(`./server/scripts/geth/create-network.sh ${name} ${nodeCount} ${consensus}`,
     (error, stdout, stderr) => {
       console.log('create-network.sh stdout: ' + stdout);
       console.log('create-network.sh stderr: ' + stderr);

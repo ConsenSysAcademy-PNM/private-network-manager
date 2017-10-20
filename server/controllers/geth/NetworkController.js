@@ -1,10 +1,11 @@
 const exec = require('child_process').exec;
 
-class GethNetworkPowController {
+class GethNetworkController {
   create (req, res) {
     const name = req.body.name
     const num_nodes = req.body.num_nodes
-    exec(`./server/scripts/geth/pow/create-network.sh ${name} ${num_nodes}`, (error, stdout, stderr) => {
+    const type = req.body.type
+    exec(`./server/scripts/geth/create-network.sh ${name} ${num_nodes} ${type}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
@@ -20,7 +21,8 @@ class GethNetworkPowController {
     const name = req.body.name
     const id = req.params.id
     const num_nodes = req.body.num_nodes
-    exec(`./server/scripts/geth/pow/start-network.sh ${name} ${id} ${num_nodes}`, (error, stdout, stderr) => {
+    const type = req.body.type
+    exec(`./server/scripts/geth/start-network.sh ${name} ${id} ${num_nodes} ${type}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       if (stderr || error) {
         // TODO: Error showing in output even though node is running
@@ -34,7 +36,7 @@ class GethNetworkPowController {
   }
 
   stop (req, res) {
-    exec("./server/scripts/geth/pow/stop-network.sh", (error, stdout, stderr) => {
+    exec("./server/scripts/geth/stop-network.sh", (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       stdout.split('\n').forEach( pid => {
         try {
@@ -57,7 +59,7 @@ class GethNetworkPowController {
 
   destroy (req, res) {
     const id = req.params.id
-    exec(`./server/scripts/geth/pow/destroy-network.sh ${id}`, (error, stdout, stderr) => {
+    exec(`./server/scripts/geth/destroy-network.sh ${id}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       stdout.split('\n').forEach( pid => {
         try {
@@ -79,4 +81,4 @@ class GethNetworkPowController {
   
 }
 
-module.exports = GethNetworkPowController;
+module.exports = GethNetworkController;

@@ -6,7 +6,7 @@ class GethGenesisPowController {
     const name = req.body.name
     const id = req.body.id
     const data = req.body.data || ''
-    exec(`./server/scripts/geth/pow/generate_genesis_pow.sh ${name} ${id} ${data}`, (error, stdout, stderr) => {
+    exec(`./server/scripts/geth/generate_genesis_pow.sh ${name} ${id} ${data}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
