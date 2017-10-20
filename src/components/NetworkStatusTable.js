@@ -31,14 +31,14 @@ class NetworkStatusTable extends Component {
 
   handleStartStop(params) {
     if (params === 'stop') {
-      axios.post('/geth/pow/network/stop')
+      axios.post('/geth/network/stop')
         .then((statusMessage) => {
           this.setState({ statusMessage: statusMessage.data.message });
           this.props.updateNetworksStatus();
         })
         .catch(err => this.setState({ statusMessage: `Error: ${err}` }));
     } else {
-      axios.post(`/geth/pow/network/${params.networkId}/start`, params)
+      axios.post(`/geth/network/${params.networkId}/start`, params)
         .then((statusMessage) => {
           this.setState({ statusMessage: statusMessage.data.message });
           let i = 0;
