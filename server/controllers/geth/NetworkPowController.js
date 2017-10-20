@@ -6,7 +6,7 @@ class GethNetworkPowController {
     const num_nodes = req.body.num_nodes
     exec(`./server/scripts/geth/pow/create-network.sh ${name} ${num_nodes}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
-      if (stderr !== null || error !== null) {
+      if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
         res.send(`Error ${stderr} ${error}` )
@@ -22,7 +22,7 @@ class GethNetworkPowController {
     const num_nodes = req.body.num_nodes
     exec(`./server/scripts/geth/pow/start-network.sh ${name} ${id} ${num_nodes}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
-      if (stderr !== null || error !== null) {
+      if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
         res.send(`Error ${stderr} ${error}` )
@@ -35,7 +35,20 @@ class GethNetworkPowController {
   stop (req, res) {
     exec("./server/scripts/geth/pow/stop-network.sh", (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
-      if (stderr !== null || error !== null) {
+      stdout.split('\n').forEach( pid => {
+        console.log(pid)
+        if (!pid) {
+          // console.log('empty')
+          return;
+        }
+        try {
+          process.kill(parseInt(pid,10))
+        }
+        catch(e) {
+          // console.log(e)
+        }
+      })
+      if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
         res.send(`Error ${stderr} ${error}` )
@@ -49,7 +62,7 @@ class GethNetworkPowController {
     const id = req.params.id
     exec(`./server/scripts/geth/pow/destroy-network.sh ${id}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
-      if (stderr !== null || error !== null) {
+      if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
         res.send(`Error ${stderr} ${error}` )
