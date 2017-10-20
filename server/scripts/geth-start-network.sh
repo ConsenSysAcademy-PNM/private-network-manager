@@ -11,7 +11,7 @@ do
   port=$((30303+$counter))
   echo "Port: $port"
   rm -rf ./server/networks/${NETWORK_ID}/node-$counter
-  geth --datadir ./server/networks/${NETWORK_ID}/node-$counter init ./server/scripts/${NETWORK_NAME}.json
+  geth --datadir ./server/networks/${NETWORK_ID}/node-$counter init ./server/scripts/${NETWORK_NAME}_pow.json
   cp ./server/scripts/base-account ./server/networks/${NETWORK_ID}/node-$counter/keystore/base-account
   if [ "$counter" -eq "0" ]; then
     MINE='--mine'

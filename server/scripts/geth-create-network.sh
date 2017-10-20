@@ -15,7 +15,7 @@ BASE_ADDRESS="0x690f254f3efdea0263d65b6a73561bc22a144c87"
 ## screen
 ## jq
 
-NETWORK_ID=$(jq -r '.config | .chainId' ./server/scripts/${NETWORK_NAME}.json)
+NETWORK_ID=$(jq -r '.config | .chainId' ./server/scripts/${NETWORK_NAME}_pow.json)
 
 mkdir -p ./server/networks/${NETWORK_ID}/
 
