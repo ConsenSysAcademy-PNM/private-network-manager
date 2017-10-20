@@ -1,5 +1,5 @@
 NETWORK_ID=$1
 
-rm -rf ../networks/${NETWORK_ID}
+rm -rf ./server/networks/${NETWORK_ID}
 
-bash ./server/scripts/geth-stop-network.sh
+bash ./server/scripts/geth/pow/stop-network.sh

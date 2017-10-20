@@ -27,8 +27,9 @@ app.post('/geth/pow/genesis/new', GethGenesisPowController.create)
 // app.get('/geth/genesis/:name/show', GethGenesisPowController.show)
 // app.delete('/geth/genesis/:name/destroy', GethGenesisPowController.destroy)
 app.post('/geth/pow/network/new', GethNetworkPowController.create)
-// app.post('/geth/network/update', GethNetworkPowController.update)
-// app.delete('/geth/network/destroy', GethNetworkPowController.destroy)
+app.post('/geth/pow/network/:id/start', GethNetworkPowController.start)
+app.post('/geth/pow/network/stop', GethNetworkPowController.stop)
+app.delete('/geth/pow/network/:id', GethNetworkPowController.destroy)
 // app.get('/geth/network/:id/status', GethNetworkPowController.show)
 
 app.get('/script', (req, res) => {
