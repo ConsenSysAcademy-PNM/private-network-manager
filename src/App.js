@@ -64,13 +64,8 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('/get_state')
-    .then(response => {
-      console.log("test :" + response);
-      console.log(response);
-      this.setState({ networks: response.data })
-    }
-  )
-    .catch(err => console.log(err));
+      .then(response => this.setState({ networks: response.data }))
+      .catch(err => console.log(err));
   }
 
 
@@ -81,7 +76,7 @@ class App extends Component {
     const {networks,  name, networkId, consensus, nodeCount } = this.state;
     const params = { name, networkId, consensus, nodeCount };
    
-    axios.post('/create_genesis', params)
+    axios.post(`/create_geth_${consensus}`, params)
       .then(response => this.setState({ createNetworkMessage: response.data }))
       .catch(err => this.setState({ createNetworkMessage: err.toString() }));
 
@@ -120,7 +115,6 @@ class App extends Component {
 
   render() {
     const { consensus, networks } = this.state;
-    console.log("render :" , networks)
     
     return (
       <div className="App">
@@ -134,7 +128,7 @@ class App extends Component {
               <h1>Private Network Manager</h1>
               <p>#CADhackDXB</p>
 
-              <NetworkStatusTable networks={networks}/>              
+              <NetworkStatusTable networks={this.state.networks} />              
 
               <h2>Create a New Network: Input Network Parameters</h2>
               <Form>

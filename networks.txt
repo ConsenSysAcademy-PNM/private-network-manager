@@ -1,1 +1,0 @@
-[{"name":"Network1","networkId":22,"nodeCount":5,"consensus":"Proof of Work","ipAddress":"192.168.121.1","status":"stopped"},{"name":"Network2","networkId":42,"nodeCount":10,"consensus":"Proof of Authority","ipAddress":"192.168.121.2","status":"running"}]

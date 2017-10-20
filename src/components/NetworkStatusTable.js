@@ -32,35 +32,31 @@ class NetworkStatusTable extends Component {
     console.log(value);
   }
 
-  componentWillMount() {
-    this.setState({networks:this.props.networks});
-  }
-
   handleEditNetworkDetails(network) {
     console.log(network);
   }
 
   render() {
-
-    const { networks } = this.state;
-    console.log(networks)
-    console.log(this.props)
+    const { networks } = this.props;
     return (
       <div>
         <h2>Available Networks</h2>
         <Table>
           <Table.Header>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Network ID</Table.HeaderCell>
-            <Table.HeaderCell>Number of Nodes</Table.HeaderCell>
-            <Table.HeaderCell>Consensus</Table.HeaderCell>
-            <Table.HeaderCell>IP Address</Table.HeaderCell>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Actions</Table.HeaderCell>
+            <Table.Row>
+              <Table.HeaderCell>Name</Table.HeaderCell>
+              <Table.HeaderCell>Network ID</Table.HeaderCell>
+              <Table.HeaderCell>Number of Nodes</Table.HeaderCell>
+              <Table.HeaderCell>Consensus</Table.HeaderCell>
+              <Table.HeaderCell>IP Address</Table.HeaderCell>
+              <Table.HeaderCell>Status</Table.HeaderCell>
+              <Table.HeaderCell>Actions</Table.HeaderCell>
+            </Table.Row>
           </Table.Header>
           <Table.Body>
             {Object.keys(networks).map(name =>
               <NetworkStatusRow
+                key={name}
                 network={networks[name]}
                 handleStartStop={this.handleStartStop}
                 handleEditNetworkDetails={this.handleEditNetworkDetails}
