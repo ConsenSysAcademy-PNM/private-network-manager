@@ -2,8 +2,8 @@ const express = require('express');
 // const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const path = require('path');
-const GethGenesisPowController = new require('./controllers/geth/GenesisPowController');
-const GethNetworkPowController = new require('./controllers/geth/NetworkPowController');
+const GethGenesisPowController = new (require('./controllers/geth/GenesisPowController'));
+const GethNetworkPowController = new (require('./controllers/geth/NetworkPowController'));
 const exec = require('child_process').exec;
 const utils = require('./utils');
 
