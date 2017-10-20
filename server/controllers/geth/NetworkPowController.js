@@ -22,7 +22,8 @@ class GethNetworkPowController {
     const num_nodes = req.body.num_nodes
     exec(`./server/scripts/geth/pow/start-network.sh ${name} ${id} ${num_nodes}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
-      if (stderr !== '' || error !== null) {
+      if (stderr || error) {
+        // TODO: Error showing in output even though node is running
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
         res.send(`Error ${stderr} ${error}` )
@@ -36,11 +37,6 @@ class GethNetworkPowController {
     exec("./server/scripts/geth/pow/stop-network.sh", (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       stdout.split('\n').forEach( pid => {
-        console.log(pid)
-        if (!pid) {
-          // console.log('empty')
-          return;
-        }
         try {
           process.kill(parseInt(pid,10))
         }
