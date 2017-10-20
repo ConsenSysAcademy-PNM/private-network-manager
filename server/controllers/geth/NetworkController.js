@@ -1,11 +1,9 @@
 const exec = require('child_process').exec;
 
 class GethNetworkController {
-  create (req, res) {
-    const name = req.body.name
-    const num_nodes = req.body.num_nodes
-    const type = req.body.type
-    exec(`./server/scripts/geth/create-network.sh ${name} ${num_nodes} ${type}`, (error, stdout, stderr) => {
+  create(req, res) {
+    const { name, nodeCount, consensus } = req.body;
+    exec(`./server/scripts/geth/create-network.sh ${name} ${nodeCount} ${consensus}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       if (stderr !== '' || error !== null) {
         console.log('stderr: ' + stderr);
@@ -18,10 +16,7 @@ class GethNetworkController {
   }
 
   start (req, res) {
-    const consensus = req.body.consensus
-    const name = req.body.name;
-    const networkId = req.body.networkId;
-    const nodeCount = req.body.nodeCount;
+    const { consensus, name, networkId, nodeCount } = req.body;
     exec(`./server/scripts/geth/start-network.sh ${name} ${networkId} ${nodeCount} ${consensus}`, (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       if (error) {
