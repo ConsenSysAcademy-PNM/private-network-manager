@@ -21,7 +21,7 @@ class App extends Component {
       name: '',
       networkId: '',
       nodeCount: '',
-      consensus: '',
+      consensus: 'pow',
       genesisData: '',
       getRequestMessage: '',
       postRequestMessage: '',
