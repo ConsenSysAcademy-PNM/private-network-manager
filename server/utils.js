@@ -62,7 +62,7 @@ const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) =>
 })
 
 const createGethNetworkPromise = ({ name, networkId, consensus }) => new Promise((resolve, reject) => {
-  exec(`./server/scripts/geth/geth-create-network.sh ${name} ${networkId} ${consensus}`,
+  exec(`./server/scripts/geth/pow/geth-create-network.sh ${name} ${networkId} ${consensus}`,
     (error, stdout, stderr) => {
       console.log('geth-create-network.sh stdout: ' + stdout);
       console.log('geth-create-network.sh stderr: ' + stderr);

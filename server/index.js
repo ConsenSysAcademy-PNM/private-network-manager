@@ -54,7 +54,7 @@ app.post('/create_geth_pow', (req, res) => utils.createGenesisPromise(req.body)
 
 app.post('/check_network_status', (req, res) => {
   const { networkId } = req.body;
-  exec(`./server/scripts/check-network.sh ${networkId}`,
+  exec(`./server/scripts/geth/check-network.sh ${networkId}`,
     (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);
