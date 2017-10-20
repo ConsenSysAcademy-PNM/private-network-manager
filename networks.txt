@@ -1,1 +1,0 @@
-{"name42":{"name":"name42","networkId":"42","consensus":"pow","nodeCount":"5","ipAddress":"","status":"stopped"}}
