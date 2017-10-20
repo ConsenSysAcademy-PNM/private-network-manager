@@ -16,26 +16,42 @@ function exec_script() {
 }
 
 
-function get_state() {
+function get_state(){
+    exec(`pwd`,
+    function (error, stdout, stderr) {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
+      }
+      return stdout;
+    });
 
-  var network_states = fs.readFileSync("networks.txt");
-  network_states = JSON.parse(network_states)
-  console.log(network_states)
-  console.log(execSync(`pwd`))
-  for (let i = 0; i < network_states.length; i++) {
-    let state = network_states[i]
-    console.log(state)
-    status = execSync('./server/scripts/check-network.sh ' + state["networkId"]).toString()
-    state["status"] = status
-  }
-  console.log(network_states)
-  return network_states;
+    var network_states = {};
+    try {
+        network_states = fs.readFileSync("networks.txt").toString();
+    } catch (err) {
+        return network_states;
+    }
+
+    network_states = JSON.parse(network_states)
+    console.log(network_states)
+    
+    for (var name in network_states) {
+        let state = network_states[name]
+        console.log(state)
+        status = execSync('./server/scripts/geth/check-network.sh ' + state["networkId"]).toString()
+        state["status"] =  status
+    }
+    console.log(network_states)
+    
+    return network_states;
 }
 
-function save_state() {
-  var stream = fs.createWriteStream("networks.txt");
-  stream.once('open', function (fd) {
-    stream.write(JSON.stringify(get_state()));
+function save_state(state){
+    var stream = fs.createWriteStream("networks.txt");
+    stream.once('open', function(fd) {
+    stream.write(JSON.stringify(state));
     stream.end();
   });
 }

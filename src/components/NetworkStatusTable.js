@@ -15,22 +15,12 @@ class NetworkStatusTable extends Component {
 
     
     this.state = {
-      networks: []
+      networks: {}
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleStartStop = this.handleStartStop.bind(this);
     this.handleEditNetworkDetails = this.handleEditNetworkDetails.bind(this);
-  }
-
-  componentDidMount() {
-    axios.get('/get_state')
-    .then(response => {
-      console.log("test :" + response);
-      this.setState({ networks: response.data })
-    }
-  )
-    .catch(err => console.log(err));
   }
 
 
@@ -42,11 +32,19 @@ class NetworkStatusTable extends Component {
     console.log(value);
   }
 
+  componentWillMount() {
+    this.setState({networks:this.props.networks});
+  }
+
   handleEditNetworkDetails(network) {
     console.log(network);
   }
 
   render() {
+
+    const { networks } = this.state;
+    console.log(networks)
+    console.log(this.props)
     return (
       <div>
         <h2>Available Networks</h2>
@@ -61,9 +59,9 @@ class NetworkStatusTable extends Component {
             <Table.HeaderCell>Actions</Table.HeaderCell>
           </Table.Header>
           <Table.Body>
-            {this.state.networks.map(network =>
+            {Object.keys(networks).map(name =>
               <NetworkStatusRow
-                network={network}
+                network={networks[name]}
                 handleStartStop={this.handleStartStop}
                 handleEditNetworkDetails={this.handleEditNetworkDetails}
               />)}

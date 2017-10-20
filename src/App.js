@@ -11,6 +11,8 @@ import './App.css'
 
 import NetworkStatusTable from './components/NetworkStatusTable';
 
+var fs = require('fs');
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -25,6 +27,7 @@ class App extends Component {
       postRequestMessage: '',
       createNetworkMessage: '',
       blockTime: '',
+      networks: {}
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
@@ -58,14 +61,39 @@ class App extends Component {
       })
   }
 
+
+  componentDidMount() {
+    axios.get('/get_state')
+    .then(response => {
+      console.log("test :" + response);
+      console.log(response);
+      this.setState({ networks: response.data })
+    }
+  )
+    .catch(err => console.log(err));
+  }
+
+
   createNetwork() {
+
     console.log('Create network');
     this.setState({ createNetworkMessage: '' });
-    const { name, networkId, consensus } = this.state;
-    const params = { name, networkId, consensus };
+    const {networks,  name, networkId, consensus, nodeCount } = this.state;
+    const params = { name, networkId, consensus, nodeCount };
+   
     axios.post('/create_genesis', params)
       .then(response => this.setState({ createNetworkMessage: response.data }))
       .catch(err => this.setState({ createNetworkMessage: err.toString() }));
+
+      networks[name]  = {"name":name, "networkId": networkId, "consensus":consensus,
+                           "nodeCount":nodeCount, "ipAddress":"",
+                          status:"stopped"}
+
+      this.setState({networks :networks })
+
+      axios.post('/save_state', {networks})
+      .then(response => this.setState({ postRequestMessage: response.data }))
+      .catch(err => this.setState({ postRequestMessage: err.toString() }));
   }
 
   exampleGetRequest() {
@@ -91,9 +119,9 @@ class App extends Component {
   }
 
   render() {
-
-    const { consensus } = this.state;
-
+    const { consensus, networks } = this.state;
+    console.log("render :" , networks)
+    
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
@@ -106,7 +134,7 @@ class App extends Component {
               <h1>Private Network Manager</h1>
               <p>#CADhackDXB</p>
 
-              <NetworkStatusTable />              
+              <NetworkStatusTable networks={networks}/>              
 
               <h2>Create a New Network: Input Network Parameters</h2>
               <Form>

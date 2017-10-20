@@ -75,8 +75,8 @@ app.get('/get_state', (req, res) => {
   res.status(200).send(utils.get_state());
 });
 
-app.get('/save_state', (req, res) => {
-  res.status(200).send(utils.save_state());
+app.post('/save_state', (req, res) => {
+  res.status(200).send(utils.save_state(req.body.networks));
 });
 
 app.post('/postExample', (req, res) => {
