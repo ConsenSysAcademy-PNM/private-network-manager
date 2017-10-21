@@ -25,15 +25,15 @@ function get_state() {
   }
 
   network_states = JSON.parse(network_states)
-  console.log(network_states)
+  // console.log(network_states)
 
   for (var name in network_states) {
     let state = network_states[name]
-    console.log(state)
+    // console.log(state)
     status = execSync('./server/scripts/geth/check-network.sh ' + state["networkId"]).toString()
     state["status"] = status.replace(/\r?\n|\r/g, '');
   }
-  console.log(network_states)
+  // console.log(network_states)
 
   return network_states;
 }
@@ -48,6 +48,7 @@ function save_state(state) {
 
 const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) => new Promise((resolve, reject) => {
   if (consensus === 'pow') blockTime = '';
+  console.log(`******** ./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`);
   exec(`./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
     (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);

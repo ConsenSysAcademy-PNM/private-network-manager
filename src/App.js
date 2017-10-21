@@ -76,8 +76,8 @@ class App extends Component {
 
     console.log('Create network');
     this.setState({ createNetworkMessage: '' });
-    const { networks, name, networkId, consensus, nodeCount } = this.state;
-    const params = { name, networkId, consensus, nodeCount };
+    const { networks, name, networkId, consensus, nodeCount, blockTime } = this.state;
+    const params = { name, networkId, consensus, nodeCount, blockTime };
 
     axios.post(`/create_geth`, params)
       .then(response => this.setState({ createNetworkMessage: response.data }))
