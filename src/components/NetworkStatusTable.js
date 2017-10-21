@@ -111,6 +111,7 @@ class NetworkStatusTable extends Component {
                 network={networks[name]}
                 handleStartStop={this.handleStartStop}
                 handleEditNetworkDetails={this.handleEditNetworkDetails}
+                deleteNetwork={this.props.deleteNetwork}
                 running={this.state.running}
               />)}
           </Table.Body>

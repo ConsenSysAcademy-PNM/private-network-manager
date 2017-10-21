@@ -34,6 +34,7 @@ class App extends Component {
     this.exampleGetRequest = this.exampleGetRequest.bind(this);
     this.examplePostRequest = this.examplePostRequest.bind(this);
     this.updateNetworksStatus = this.updateNetworksStatus.bind(this);
+    this.deleteNetwork = this.deleteNetwork.bind(this);
   }
 
   handleChange(e, data) {
@@ -98,6 +99,20 @@ class App extends Component {
       .catch(err => this.setState({ postRequestMessage: err.toString() }));
   }
 
+  deleteNetwork(id, name, consensus) {
+    const genesis_name = `${name}_${consensus}`
+    const { networks } = this.state;
+    axios.post(`/geth/network/${id}`, {genesis_name})
+    .then(response => {
+      delete networks[name];
+      this.setState({networks, postRequestMessage: `${name} has been deleted!`})
+
+      axios.post('/save_state', { networks })
+        .then(response => this.setState({ postRequestMessage: response.data }))
+        .catch(err => this.setState({ postRequestMessage: err.toString() }));
+    });
+  }
+
   exampleGetRequest() {
     axios.get('/getExample')
       .then(response => this.setState({ getRequestMessage: response.data }))
@@ -127,7 +142,7 @@ class App extends Component {
     const panes = [
       {
         menuItem: 'Available Networks', render: () => <Tab.Pane attached={false}>
-          <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} />
+          <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} deleteNetwork={this.deleteNetwork}/>
           <Segment>
             <TerminalLogs />
           </Segment>

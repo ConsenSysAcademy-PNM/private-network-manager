@@ -7,7 +7,7 @@ import '../css/open-sans.css'
 import '../css/pure-min.css'
 import '../App.css'
 
-const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, running }) => {
+const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, deleteNetwork, running }) => {
   const { name, networkId, nodeCount, consensus, ipAddress, status } = network;
 
   return (
@@ -28,6 +28,10 @@ const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, 
         <Button
           onClick={() => handleEditNetworkDetails(name)}
         >Edit Details</Button>
+        <Button 
+          onClick={() => deleteNetwork(networkId, name, consensus)}
+          disabled={status === 'running'}
+        >Delete Network</Button>
       </Table.Cell>
     </Table.Row>
   );

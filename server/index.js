@@ -34,7 +34,7 @@ app.post('/geth/genesis/pow/new', GethGenesisPowController.create)
 app.post('/geth/network/new', GethNetworkController.create)
 app.post('/geth/network/:id/start', GethNetworkController.start)
 app.post('/geth/network/stop', GethNetworkController.stop)
-app.delete('/geth/network/:id', GethNetworkController.destroy)
+app.post('/geth/network/:id', GethNetworkController.destroy)
 // app.get('/geth/network/:id/status', GethNetworkController.show)
 
 app.get('/script', (req, res) => {
