@@ -1,0 +1,72 @@
+<html>
+<body>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <pre id="info"></pre>
+    <pre id="tail"></pre>
+    <!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+  
+
+  <script>
+
+  var Application = function() {
+
+
+    var socket = io.connect('http://127.0.0.1:8080/');
+
+    socket.on('connect', function() {
+      console.log('Connected to:', socket.host);
+    });
+    socket.on('message', function(message) {
+      console.log('Received message:', message);
+      if (message.filename) {
+        $('#info').html( '$ tail -f ' + message.filename );
+      };
+      if (message.tail) {
+        $('#tail').html( $('#tail').html() + message.tail );
+        bottom = $("#tail")[0].scrollHeight - $("#tail").height()
+        $('#tail').scrollTop(bottom);
+
+      }
+    });
+
+    return {
+      socket : socket
+    };
+  };
+
+  $(function() { var app = Application(); });
+
+  </script>
+ -->
+ <script>
+   $(function() { 
+     // const WebSocket = require('ws')
+     // Create WebSocket connection.
+     const socket = new WebSocket('ws://localhost:8080');
+     
+     // Connection opened
+     socket.addEventListener('open', function (event) {
+      socket.send('Hello Server!');
+      console.log('connection open')
+    });
+    
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+      console.log('Message from server ', event.data);
+      console.log("New Message")
+      if (event.data) {
+        if (! $('pre li[data-value="' + event.data +'"]').length) {
+          $('#tail').append( "<li data-value='" + event.data + "'>" + event.data + "</li>");
+        }
+        // $('#tail').html( $('#tail').html() + event.data + "<br/>");
+        bottom = $("#tail")[0].scrollHeight - $("#tail").height()
+        $('#tail').scrollTop(bottom);
+      }
+    });
+  })
+</script>
+</body>
+</html>
