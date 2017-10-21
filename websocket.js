@@ -33,7 +33,7 @@ wss.on('connection', function connection(ws) {
   });
   tail.on("line", function(data) {
     console.log("new data: ", data)
-    ws.send(data)
+    ws.send(data+"&!")
   });
     
   tail.on("error", function(error) {

@@ -6,6 +6,9 @@ const GethGenesisPowController = new (require('./controllers/geth/GenesisPowCont
 const GethNetworkController = new (require('./controllers/geth/NetworkController'));
 const exec = require('child_process').exec;
 const utils = require('./utils');
+const http = require('http')
+const Tail = require('tail').Tail;
+const WebSocket = require('ws');
 
 const app = express();
 
@@ -95,15 +98,24 @@ const server = app.listen(process.env.PORT || 5000, () => {
   console.warn('Backend server listening on port 5000!');
 });
 
-const io = require('socket.io').listen(server);
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+const tail = new Tail('./screenlog.0');
 
-let counter = 0;
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+  });
+  tail.on("line", function(data) {
+    console.log("new data: ", data)
+    ws.send(data+"&!")
+  });
+    
+  tail.on("error", function(error) {
+    console.log('ERROR: ', error);
+  });
+})
 
-io.on('connect', (client) => {
-  console.log('*** server side socket connected!');
-  setInterval(() => {
-    counter++;
-    io.emit('message', counter);
-  }, 1000);
-
+server.listen(8080, function listening() {
+  console.log('Websocket Listening on %d', server.address().port);
 });
