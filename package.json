@@ -49,14 +49,18 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
-    "jq-cli-wrapper": "^0.4",
     "axios": "^0.16.2",
     "child_process": "^1.0.2",
     "dotenv": "^2.0.0",
+    "jq-cli-wrapper": "^0.4",
     "react": "^15.4.2",
     "react-bash": "^1.5.3",
     "react-dom": "^15.4.2",
-    "semantic-ui-react": "^0.75.1"
+    "semantic-ui-react": "^0.75.1",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3",
+    "tail": "^1.2.2",
+    "ws": "^3.2.0"
   },
   "scripts": {
     "start": "node scripts/build.js && node server $(jq -r .main package.json)",
