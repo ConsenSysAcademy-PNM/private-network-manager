@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import getWeb3 from './utils/getWeb3'
 import axios from 'axios';
 
-import { Table, Form, Button, Radio, Dropdown, Segment, Tab } from 'semantic-ui-react';
+import { Form, Button, Radio, Segment, Tab } from 'semantic-ui-react';
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -120,7 +120,7 @@ class App extends Component {
   }
 
   render() {
-    const { consensus, networks } = this.state;
+    const { consensus } = this.state;
 
 
     const panes = [
