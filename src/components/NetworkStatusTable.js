@@ -99,7 +99,6 @@ class NetworkStatusTable extends Component {
               <Table.HeaderCell>Network ID</Table.HeaderCell>
               <Table.HeaderCell>Number of Nodes</Table.HeaderCell>
               <Table.HeaderCell>Consensus</Table.HeaderCell>
-              <Table.HeaderCell>IP Address</Table.HeaderCell>
               <Table.HeaderCell>Status</Table.HeaderCell>
               <Table.HeaderCell>Actions</Table.HeaderCell>
             </Table.Row>

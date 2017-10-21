@@ -16,7 +16,6 @@ const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, 
       <Table.Cell>{networkId}</Table.Cell>
       <Table.Cell>{nodeCount}</Table.Cell>
       <Table.Cell>{consensus}</Table.Cell>
-      <Table.Cell>{ipAddress}</Table.Cell>
       <Table.Cell>{status === 'running' ? <Icon color="green" name="play" /> : <Icon color="red" name="stop"/>}{' '}{status}</Table.Cell>
       <Table.Cell>
         <Button

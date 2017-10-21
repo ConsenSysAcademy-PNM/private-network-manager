@@ -12,6 +12,8 @@ import './App.css'
 import NetworkStatusTable from './components/NetworkStatusTable';
 import TerminalLogs from './components/TerminalLogs';
 
+let i = 1;
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -27,6 +29,7 @@ class App extends Component {
       createNetworkMessage: '',
       blockTime: '',
       networks: {},
+      tableData: [],
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
@@ -35,6 +38,7 @@ class App extends Component {
     this.examplePostRequest = this.examplePostRequest.bind(this);
     this.updateNetworksStatus = this.updateNetworksStatus.bind(this);
     this.deleteNetwork = this.deleteNetwork.bind(this);
+    this.startSocket = this.startSocket.bind(this);
   }
 
   handleChange(e, data) {
@@ -66,6 +70,26 @@ class App extends Component {
   componentDidMount() {
     this.updateNetworksStatus();
     setInterval(this.updateNetworksStatus, 3000);
+    this.startSocket();
+  }
+
+  startSocket() {
+    this.socket = new WebSocket('ws://localhost:8080');
+
+    this.socket.addEventListener('open', (event) => {
+      this.setState({ connectionStatus: `Connected to server logs: ` });
+    });
+
+    this.socket.addEventListener('message', (message) => {
+
+      setTimeout(() => {
+        const text = message.data.split('[32m').join(' ').split('[0m').join(' ');
+        const row = i;
+        i += 1;
+  
+        this.setState({ tableData: [{ row, text }].concat(this.state.tableData) });
+      }, 0);
+    });
   }
 
   updateNetworksStatus() {
@@ -144,7 +168,7 @@ class App extends Component {
         menuItem: 'Available Networks', render: () => <Tab.Pane attached={false}>
           <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} deleteNetwork={this.deleteNetwork}/>
           <Segment>
-            <TerminalLogs />
+            <TerminalLogs tableData={this.state.tableData} />
           </Segment>
         </Tab.Pane>
       },
@@ -198,14 +222,14 @@ class App extends Component {
             {this.state.createNetworkMessage}
           </Form>
           <Segment>
-            <TerminalLogs />
+            <TerminalLogs tableData={this.state.tableData} />
           </Segment>
         </Tab.Pane>
       },
       {
         menuItem: 'Terminal Logs', render: () => <Tab.Pane attached={false}>
           <Segment>
-            <TerminalLogs />
+            <TerminalLogs tableData={this.state.tableData} />
           </Segment>
         </Tab.Pane>
       },
