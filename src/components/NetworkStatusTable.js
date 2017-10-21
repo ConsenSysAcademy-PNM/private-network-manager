@@ -35,7 +35,6 @@ class NetworkStatusTable extends Component {
   checkNetworksStatus() {
     const { networks } = this.props;
     Object.keys(networks).map((network) => {
-      console.log(networks[network].status);
       if (networks[network].status === 'running') {
         this.setState({ running: true });
       }
@@ -54,7 +53,6 @@ class NetworkStatusTable extends Component {
     if (params === 'stop') {
       axios.post('/geth/network/stop')
         .then((statusMessage) => {
-          console.log('**** STOP ');
           this.setState({
             statusMessage: statusMessage.data.message,
             action: 'stop',
@@ -70,7 +68,6 @@ class NetworkStatusTable extends Component {
           this.setState({ statusMessage: statusMessage.data.message, selectedNetwork: params.name, action: 'starting' });
           let i = 0;
           let interval = setInterval(() => {
-            console.log('check');
             this.props.updateNetworksStatus();
             if (i > 5 || this.props.networks[params.name].status === 'running') {
               clearInterval(interval);

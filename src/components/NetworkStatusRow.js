@@ -10,8 +10,6 @@ import '../App.css'
 const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, running }) => {
   const { name, networkId, nodeCount, consensus, ipAddress, status } = network;
 
-  console.log(running, status);
-
   return (
     <Table.Row>
       <Table.Cell>{name}</Table.Cell>
