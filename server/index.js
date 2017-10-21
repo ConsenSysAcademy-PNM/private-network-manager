@@ -48,7 +48,7 @@ app.post('/create_genesis', (req, res) => utils.createGenesisPromise(req.body)
   .then(res => res.status(200).send(res))
   .catch(err => res.status(500).send(err)));
 
-app.post('/create_geth_pow', (req, res) => utils.createGenesisPromise(req.body)
+app.post('/create_geth', (req, res) => utils.createGenesisPromise(req.body)
   .then(() => utils.createGethNetworkPromise(req.body))
   .then(res => res.status(200).send(res))
   .catch(err => res.status(500).send(err)));
