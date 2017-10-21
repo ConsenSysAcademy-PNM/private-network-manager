@@ -7,8 +7,10 @@ import '../css/open-sans.css'
 import '../css/pure-min.css'
 import '../App.css'
 
-const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails }) => {
+const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, running }) => {
   const { name, networkId, nodeCount, consensus, ipAddress, status } = network;
+
+  console.log(running, status);
 
   return (
     <Table.Row>
@@ -23,6 +25,7 @@ const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails }
           positive={status !== 'running'}
           negative={status === 'running'}
           onClick={() => handleStartStop(status === 'running' ? 'stop' : network)}
+          disabled={status === 'stopped' && running}
         >{status === 'running' ? 'Stop' : 'Start'}</Button>
         <Button
           onClick={() => handleEditNetworkDetails(name)}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import getWeb3 from './utils/getWeb3'
 import axios from 'axios';
 
-import { Table, Form, Button, Radio, Dropdown, Segment } from 'semantic-ui-react';
+import { Table, Form, Button, Radio, Dropdown, Segment, Tab } from 'semantic-ui-react';
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -10,8 +10,6 @@ import './css/pure-min.css'
 import './App.css'
 
 import NetworkStatusTable from './components/NetworkStatusTable';
-
-var fs = require('fs');
 
 class App extends Component {
   constructor(props) {
@@ -27,7 +25,7 @@ class App extends Component {
       postRequestMessage: '',
       createNetworkMessage: '',
       blockTime: '',
-      networks: {}
+      networks: {},
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleRadioSelection = this.handleRadioSelection.bind(this);
@@ -65,32 +63,35 @@ class App extends Component {
 
   componentDidMount() {
     this.updateNetworksStatus();
+    setInterval(this.updateNetworksStatus, 3000);
   }
 
   updateNetworksStatus() {
     axios.get('/get_state')
-    .then(response => this.setState({ networks: response.data }))
-    .catch(err => console.log(err));
+      .then(response => this.setState({ networks: response.data }))
+      .catch(err => console.log(err));
   }
 
   createNetwork() {
 
     console.log('Create network');
     this.setState({ createNetworkMessage: '' });
-    const {networks,  name, networkId, consensus, nodeCount } = this.state;
+    const { networks, name, networkId, consensus, nodeCount } = this.state;
     const params = { name, networkId, consensus, nodeCount };
-   
+
     axios.post(`/create_geth_${consensus}`, params)
       .then(response => this.setState({ createNetworkMessage: response.data }))
       .catch(err => this.setState({ createNetworkMessage: err.toString() }));
 
-      networks[name]  = {"name":name, "networkId": networkId, "consensus":consensus,
-                           "nodeCount":nodeCount, "ipAddress":"",
-                          status:"stopped"}
+    networks[name] = {
+      "name": name, "networkId": networkId, "consensus": consensus,
+      "nodeCount": nodeCount, "ipAddress": "",
+      status: "stopped"
+    }
 
-      this.setState({networks :networks })
+    this.setState({ networks: networks })
 
-      axios.post('/save_state', {networks})
+    axios.post('/save_state', { networks })
       .then(response => this.setState({ postRequestMessage: response.data }))
       .catch(err => this.setState({ postRequestMessage: err.toString() }));
   }
@@ -119,7 +120,83 @@ class App extends Component {
 
   render() {
     const { consensus, networks } = this.state;
-    
+
+
+    const panes = [
+      {
+        menuItem: 'Available Networks', render: () => <Tab.Pane attached={false}>
+          <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} />
+        </Tab.Pane>
+      },
+      {
+        menuItem: 'Create a New Network', render: () => <Tab.Pane attached={false}>
+          <h2>Create a New Network: Input Network Parameters</h2>
+          <Form>
+            <Form.Input
+              label="Name"
+              value={this.state.name}
+              name="name"
+              onChange={this.handleChange}
+              placeholder="Enter new network name"
+            />
+            <Form.Input
+              label="Network ID"
+              placeholder="Enter network id"
+              value={this.state.networkId}
+              name="networkId"
+              onChange={this.handleChange}
+            />
+            <Form.Input
+              label="Number of Nodes"
+              placeholder="Enter number of nodes"
+              value={this.state.nodeCount}
+              name="nodeCount"
+              onChange={this.handleChange}
+            />
+            <Form.Group inline>
+              <label>Consensus Methodology</label>
+              <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleRadioSelection} />
+              <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleRadioSelection} />
+            </Form.Group>
+            {consensus === 'poa' && (
+              <Form.Input
+                label="Block time in seconds"
+                placeholder="Default = 15"
+                value={this.state.blockTime}
+                name="blockTime"
+                onChange={this.handleChange}
+              />
+            )}
+            <Form.Input
+              label="Genesis data: input hex"
+              placeholder="Enter data to be included in genesis file"
+              value={this.state.genesisData}
+              name="genesisData"
+              onChange={this.handleChange}
+            />
+            <Button onClick={this.createNetwork}>Create new private network</Button>
+            {this.state.createNetworkMessage}
+          </Form>
+        </Tab.Pane>
+      },
+      {
+        menuItem: 'Testing | Development', render: () => <Tab.Pane attached={false}>
+          <Segment>
+            <h2>Development Area | Testing</h2>
+
+            <Button onClick={this.exampleGetRequest}>Get request</Button>
+            {this.state.getRequestMessage}
+
+            <br />
+            <br />
+
+            <Button onClick={this.examplePostRequest}>Post request</Button>
+            {this.state.postRequestMessage}
+          </Segment>
+        </Tab.Pane>
+      },
+    ]
+
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
@@ -132,68 +209,8 @@ class App extends Component {
               <h1>Private Network Manager</h1>
               <p>#CADhackDXB</p>
 
-              <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} />              
+              <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
 
-              <h2>Create a New Network: Input Network Parameters</h2>
-              <Form>
-                <Form.Input
-                  label="Name"
-                  value={this.state.name}
-                  name="name"
-                  onChange={this.handleChange}
-                  placeholder="Enter new network name"
-                />
-                <Form.Input
-                  label="Network ID"
-                  placeholder="Enter network id"
-                  value={this.state.networkId}
-                  name="networkId"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Number of Nodes"
-                  placeholder="Enter number of nodes"
-                  value={this.state.nodeCount}
-                  name="nodeCount"
-                  onChange={this.handleChange}
-                />
-                <Form.Group inline>
-                  <label>Consensus Methodology</label>
-                  <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleRadioSelection} />
-                  <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleRadioSelection} />
-                </Form.Group>
-                {consensus === 'poa' && (
-                  <Form.Input
-                    label="Block time in seconds"
-                    placeholder="Default = 15"
-                    value={this.state.blockTime}
-                    name="blockTime"
-                    onChange={this.handleChange}
-                  />
-                )}
-                <Form.Input
-                  label="Genesis data: input hex"
-                  placeholder="Enter data to be included in genesis file"
-                  value={this.state.genesisData}
-                  name="genesisData"
-                  onChange={this.handleChange}
-                />
-                <Button onClick={this.createNetwork}>Create new private network</Button>
-                {this.state.createNetworkMessage}
-              </Form>
-
-              <Segment>              
-                <h2>Development Area | Testing</h2>
-                
-                <Button onClick={this.exampleGetRequest}>Get request</Button>
-                {this.state.getRequestMessage}
-
-                <br />
-                <br />
-
-                <Button onClick={this.examplePostRequest}>Post request</Button>
-                {this.state.postRequestMessage}
-              </Segment>  
             </div>
           </div>
         </main>
