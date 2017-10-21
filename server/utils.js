@@ -46,10 +46,10 @@ function save_state(state) {
   });
 }
 
-const createGenesisPromise = ({ name, networkId, consensus, blockTime = 15 }) => new Promise((resolve, reject) => {
-  if (consensus === 'pow') blockTime = '';
-  console.log(`******** ./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`);
-  exec(`./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${blockTime}`,
+const createGenesisPromise = ({ name, networkId, consensus, additionalData }) => new Promise((resolve, reject) => {
+  if (consensus === 'poa') additionalData = additionalData || 15;
+  console.log(`******** ./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${additionalData}`);
+  exec(`./server/scripts/geth/generate_genesis_${consensus}.sh ${name} ${networkId} ${additionalData}`,
     (error, stdout, stderr) => {
       console.log('stdout: ' + stdout);
       console.log('stderr: ' + stderr);

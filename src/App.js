@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import getWeb3 from './utils/getWeb3'
 import axios from 'axios';
 
-import { Table, Form, Button, Radio, Dropdown, Segment, Tab } from 'semantic-ui-react';
+import { Form, Button, Radio, Segment, Tab } from 'semantic-ui-react';
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -76,8 +76,9 @@ class App extends Component {
 
     console.log('Create network');
     this.setState({ createNetworkMessage: '' });
-    const { networks, name, networkId, consensus, nodeCount, blockTime } = this.state;
-    const params = { name, networkId, consensus, nodeCount, blockTime };
+    const { networks, name, networkId, consensus, nodeCount, genesisData, blockTime } = this.state;
+    const additionalData = consensus === 'pow' ? genesisData : blockTime;
+    const params = { name, networkId, consensus, nodeCount, additionalData };
 
     axios.post(`/create_geth`, params)
       .then(response => this.setState({ createNetworkMessage: response.data }))
@@ -119,7 +120,7 @@ class App extends Component {
   }
 
   render() {
-    const { consensus, networks } = this.state;
+    const { consensus } = this.state;
 
 
     const panes = [
@@ -167,13 +168,13 @@ class App extends Component {
                 onChange={this.handleChange}
               />
             )}
-            <Form.Input
+            {consensus === 'pow' && (<Form.Input
               label="Genesis data: input hex"
               placeholder="Enter data to be included in genesis file"
               value={this.state.genesisData}
               name="genesisData"
               onChange={this.handleChange}
-            />
+            />)}
             <Button onClick={this.createNetwork}>Create new private network</Button>
             {this.state.createNetworkMessage}
           </Form>
