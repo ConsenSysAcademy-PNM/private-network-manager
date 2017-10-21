@@ -100,7 +100,7 @@ const server = app.listen(process.env.PORT || 5000, () => {
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-const tail = new Tail('./screenlog.0');
+const tail = new Tail('./screenlog.0', {fromBeginning:true});
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
