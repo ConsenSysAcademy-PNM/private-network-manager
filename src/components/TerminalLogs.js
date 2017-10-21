@@ -8,13 +8,14 @@ import '../css/open-sans.css'
 import '../css/pure-min.css'
 import '../App.css'
 
+let i = 0;
 
 class TerminalLogs extends Component {
   constructor(props) {
     super(props)
     
     this.state = {
-      data: [],
+      tableData: [],
       connectionStatus: '',
       receivedMessage: '',
     }
@@ -44,7 +45,17 @@ class TerminalLogs extends Component {
 
     // this.socket.on('message', (message) => {
     this.socket.addEventListener('message', (message) => {
-      this.setState({ receivedMessage: JSON.stringify(message.data) });
+
+      setTimeout(() => {
+        const text = message.data.split('[32m').join(' ').split('[0m').join(' ');
+        const row = i;
+        i += 1;
+        
+        let newData = this.state.tableData.slice(0);
+        newData.push({ row, text })
+  
+        this.setState({ receivedMessage: message.data.split('[32m').join(' ').split('[0m').join(' '), tableData: newData });
+      }, 0);
     });
   }
 
@@ -57,13 +68,13 @@ class TerminalLogs extends Component {
         {receivedMessage}
         <Table basic="very">
           <Table.Body>
-            {this.state.data.map((value, index) => (
-              <Table.Row>
+            {this.state.tableData.map((obj, index) => (
+              <Table.Row key={obj.row}>
                 <Table.Cell width={1}>
-                  {index}
+                  {obj.row}
                 </Table.Cell>
                 <Table.Cell>
-                  {value}
+                  {obj.text}
                 </Table.Cell>
               </Table.Row>
             )
