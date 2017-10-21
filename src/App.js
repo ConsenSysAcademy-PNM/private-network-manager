@@ -76,8 +76,9 @@ class App extends Component {
 
     console.log('Create network');
     this.setState({ createNetworkMessage: '' });
-    const { networks, name, networkId, consensus, nodeCount, blockTime } = this.state;
-    const params = { name, networkId, consensus, nodeCount, blockTime };
+    const { networks, name, networkId, consensus, nodeCount, genesisData, blockTime } = this.state;
+    const additionalData = consensus === 'pow' ? genesisData : blockTime;
+    const params = { name, networkId, consensus, nodeCount, additionalData };
 
     axios.post(`/create_geth`, params)
       .then(response => this.setState({ createNetworkMessage: response.data }))
@@ -167,13 +168,13 @@ class App extends Component {
                 onChange={this.handleChange}
               />
             )}
-            <Form.Input
+            {consensus === 'pow' && (<Form.Input
               label="Genesis data: input hex"
               placeholder="Enter data to be included in genesis file"
               value={this.state.genesisData}
               name="genesisData"
               onChange={this.handleChange}
-            />
+            />)}
             <Button onClick={this.createNetwork}>Create new private network</Button>
             {this.state.createNetworkMessage}
           </Form>

@@ -50,8 +50,8 @@ app.post('/create_genesis', (req, res) => utils.createGenesisPromise(req.body)
 
 app.post('/create_geth', (req, res) => utils.createGenesisPromise(req.body)
   .then(() => utils.createGethNetworkPromise(req.body))
-  .then(res => res.status(200).send(res))
-  .catch(err => res.status(500).send(err)));
+  .then(result => res.status(200).send(JSON.stringify(result)))
+  .catch(err => res.status(500).send(err.toString())));
 
 app.post('/check_network_status', (req, res) => {
   const { networkId } = req.body;
