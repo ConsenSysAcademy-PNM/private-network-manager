@@ -10,6 +10,7 @@ import './css/pure-min.css'
 import './App.css'
 
 import NetworkStatusTable from './components/NetworkStatusTable';
+import TerminalLogs from './components/TerminalLogs';
 
 class App extends Component {
   constructor(props) {
@@ -127,6 +128,9 @@ class App extends Component {
       {
         menuItem: 'Available Networks', render: () => <Tab.Pane attached={false}>
           <NetworkStatusTable networks={this.state.networks} updateNetworksStatus={this.updateNetworksStatus} />
+          <Segment>
+            <TerminalLogs />
+          </Segment>
         </Tab.Pane>
       },
       {
@@ -178,6 +182,16 @@ class App extends Component {
             <Button onClick={this.createNetwork}>Create new private network</Button>
             {this.state.createNetworkMessage}
           </Form>
+          <Segment>
+            <TerminalLogs />
+          </Segment>
+        </Tab.Pane>
+      },
+      {
+        menuItem: 'Terminal Logs', render: () => <Tab.Pane attached={false}>
+          <Segment>
+            <TerminalLogs />
+          </Segment>
         </Tab.Pane>
       },
       {
