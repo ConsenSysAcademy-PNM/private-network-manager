@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Table, Button } from 'semantic-ui-react';
+import { Table, Button, Icon } from 'semantic-ui-react';
 
 import '../css/oswald.css'
 import '../css/open-sans.css'
@@ -19,7 +19,7 @@ const NetworkStatusRow = ({ network, handleStartStop, handleEditNetworkDetails, 
       <Table.Cell>{nodeCount}</Table.Cell>
       <Table.Cell>{consensus}</Table.Cell>
       <Table.Cell>{ipAddress}</Table.Cell>
-      <Table.Cell>{status === 'running' ? '✅' : '🔴'}{' '}{status}</Table.Cell>
+      <Table.Cell>{status === 'running' ? <Icon color="green" name="play" /> : <Icon color="red" name="stop"/>}{' '}{status}</Table.Cell>
       <Table.Cell>
         <Button
           positive={status !== 'running'}
