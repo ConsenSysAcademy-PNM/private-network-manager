@@ -32,16 +32,19 @@ class TerminalLogs extends Component {
   }
 
   startSocket() {
-    this.socket = io.connect('http://127.0.0.1:5000');
+    // this.socket = io.connect('http://127.0.0.1:8080');
+    this.socket = new WebSocket('ws://localhost:8080');
 
-    this.socket.on('connect', () => {
+    // this.socket.on('connect', () => {
+    this.socket.addEventListener('open', (event) => {
       console.log('** CONNECTED **');
       console.log(this.socket);
       this.setState({ connectionStatus: `Connected to server logs: ` });
     });
 
-    this.socket.on('message', (message) => {
-      this.setState({ receivedMessage: JSON.stringify(message) });
+    // this.socket.on('message', (message) => {
+    this.socket.addEventListener('message', (message) => {
+      this.setState({ receivedMessage: JSON.stringify(message.data) });
     });
   }
 

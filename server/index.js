@@ -94,15 +94,18 @@ app.get('/:bad*', (req, res) => {
 });
 
 
-const server = app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.warn('Backend server listening on port 5000!');
 });
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-const tail = new Tail('./screenlog.0', {fromBeginning:true});
+const tail = new Tail('./screenlog.0');
+
+// , {fromBeginning:true}
 
 wss.on('connection', function connection(ws) {
+  console.log("Client connected")
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
   });
