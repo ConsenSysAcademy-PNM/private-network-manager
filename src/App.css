@@ -34,6 +34,10 @@ code {
   border-color: #0c1a2b;
 }
 
+.highlight {
+  color: #33cc33;  
+}
+
 /* NAVBAR */
 
 .navbar {

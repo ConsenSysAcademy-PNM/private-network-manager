@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import io from 'socket.io-client';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 import { Table, Message, Icon } from 'semantic-ui-react';
 
@@ -9,6 +10,16 @@ import '../css/pure-min.css'
 import '../App.css'
 
 let i = 0;
+
+const highlights = ['INFO', 'number', 'txs', 'hash', 'uncles', 'elapsed'];
+
+const highlightText = (textLine) => {
+  let result = textLine;
+  highlights.forEach((string) => {
+    result = result.split(string).join(`<span class="highlight">${string}</span>`)
+  })
+  return result;
+}
 
 class TerminalLogs extends Component {
   constructor(props) {
@@ -52,9 +63,9 @@ class TerminalLogs extends Component {
         i += 1;
         
         let newData = this.state.tableData.slice(0);
-        newData.push({ row, text })
+        newData.unshift({ row, text })
   
-        this.setState({ receivedMessage: message.data.split('[32m').join(' ').split('[0m').join(' '), tableData: newData });
+        this.setState({ tableData: newData });
       }, 0);
     });
   }
@@ -66,15 +77,15 @@ class TerminalLogs extends Component {
         <h2>Terminal Output</h2>
         {connectionStatus}
         {receivedMessage}
-        <Table basic="very">
+        <Table basic="very" color="black" inverted>
           <Table.Body>
             {this.state.tableData.map((obj, index) => (
               <Table.Row key={obj.row}>
-                <Table.Cell width={1}>
+                <Table.Cell textAlign="center" width={1}>
                   {obj.row}
                 </Table.Cell>
                 <Table.Cell>
-                  {obj.text}
+                  {ReactHtmlParser(highlightText(obj.text))}
                 </Table.Cell>
               </Table.Row>
             )

@@ -1,1 +1,1 @@
-{"Test":{"name":"Test","networkId":"123","consensus":"pow","nodeCount":"2","ipAddress":"","status":"stopped"}}
+{"Test":{"name":"Test","networkId":"123","consensus":"pow","nodeCount":"2","ipAddress":"","status":"stopped"},"name12":{"name":"name12","networkId":"12","consensus":"pow","nodeCount":"2","ipAddress":"","status":"stopped"}}
