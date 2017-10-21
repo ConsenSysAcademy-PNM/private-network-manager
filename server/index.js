@@ -111,7 +111,7 @@ wss.on('connection', function connection(ws) {
     console.log('received: %s', message);
   });
   tail.on("line", function(data) {
-    ws.send(data)
+    ws.send(data, error => console.log('Web Socket error: ', error));
   });
     
   tail.on("error", function(error) {
