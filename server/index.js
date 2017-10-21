@@ -102,16 +102,13 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const tail = new Tail('./screenlog.0');
 
-// , {fromBeginning:true}
-
 wss.on('connection', function connection(ws) {
   console.log("Client connected")
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
   });
   tail.on("line", function(data) {
-    console.log("new data: ", data)
-    ws.send(data+"&!")
+    ws.send(data)
   });
     
   tail.on("error", function(error) {
