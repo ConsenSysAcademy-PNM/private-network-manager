@@ -12,3 +12,4 @@ server/networks
 networks.txt
 *_pow.json
 *_poa.json
+screenlog*
