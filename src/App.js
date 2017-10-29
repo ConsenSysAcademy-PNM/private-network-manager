@@ -176,6 +176,12 @@ class App extends Component {
         menuItem: 'Create a New Network', render: () => <Tab.Pane attached={false}>
           <h2>Create a New Network: Input Network Parameters</h2>
           <Form>
+            <Form.Group inline>
+              <label>Ethereum Client</label>
+              <Form.Field control={Radio} label="Geth" name="client" value="geth" checked />
+              <Form.Field control={Radio} label="Parity" name="client" value="geth" disabled />
+              <Form.Field control={Radio} label="Quorum" name="client" value="geth" disabled />
+            </Form.Group>
             <Form.Input
               label="Name"
               value={this.state.name}
@@ -201,6 +207,7 @@ class App extends Component {
               <label>Consensus Methodology</label>
               <Form.Field control={Radio} label="Proof of Work" name="consensus" value="pow" checked={consensus === 'pow'} onChange={this.handleRadioSelection} />
               <Form.Field control={Radio} label="Proof of Authority" name="consensus" value="poa" checked={consensus === 'poa'} onChange={this.handleRadioSelection} />
+              <Form.Field control={Radio} label="Proof of Stake" name="consensus" value="pos" onChange={this.handleRadioSelection} disabled />
             </Form.Group>
             {consensus === 'poa' && (
               <Form.Input
@@ -230,22 +237,6 @@ class App extends Component {
         menuItem: 'Terminal Logs', render: () => <Tab.Pane attached={false}>
           <Segment>
             <TerminalLogs tableData={this.state.tableData} />
-          </Segment>
-        </Tab.Pane>
-      },
-      {
-        menuItem: 'Testing | Development', render: () => <Tab.Pane attached={false}>
-          <Segment>
-            <h2>Development Area | Testing</h2>
-
-            <Button onClick={this.exampleGetRequest}>Get request</Button>
-            {this.state.getRequestMessage}
-
-            <br />
-            <br />
-
-            <Button onClick={this.examplePostRequest}>Post request</Button>
-            {this.state.postRequestMessage}
           </Segment>
         </Tab.Pane>
       },

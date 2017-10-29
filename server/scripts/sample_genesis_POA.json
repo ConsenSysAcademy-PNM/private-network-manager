@@ -47,7 +47,7 @@
       "balance": "0x1"
     },
     "690f254f3efdea0263d65b6a73561bc22a144c87": {
-      "balance": "0xffffffffff"
+      "balance": "0xfffffffffffffffffffffffffffff"
     }
   },
   "gasUsed": "0x0",
