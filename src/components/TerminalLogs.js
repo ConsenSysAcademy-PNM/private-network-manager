@@ -8,7 +8,7 @@ import '../css/open-sans.css'
 import '../css/pure-min.css'
 import '../App.css'
 
-const highlights = ['INFO', 'number', 'txs', 'hash', 'uncles', 'elapsed'];
+const highlights = ['INFO', 'number', 'txs', 'hash', 'uncles', 'elapsed', 'contract'];
 
 const highlightText = (textLine) => {
   let result = textLine;
